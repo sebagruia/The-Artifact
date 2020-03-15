@@ -7,7 +7,12 @@ const Home = ({articles}) => {
     <Layout>
       <h5>This is Top Headlines</h5>
       <main>
-        <PreviewArticle articles = {articles}/>
+        {
+          articles.map((article)=>
+            <PreviewArticle article = {article}/>
+          )
+        }
+        
 
       </main>
       <style jsx>{`
@@ -15,6 +20,11 @@ const Home = ({articles}) => {
           margin-top:150px;
         }
         main{
+          display:flex;
+          flex-wrap:wrap;
+          flex-direction: row;
+          width:992px;
+          margin:0 auto;
           background-color:#fff;
         }
         `}</style>
@@ -23,7 +33,7 @@ const Home = ({articles}) => {
 };
 
 Home.getInitialProps = async ()=>{
-  const res = await fetch('http://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=7467175589024bc6942b178bf2392c5a');
+  const res = await fetch('http://newsapi.org/v2/top-headlines?apiKey=7467175589024bc6942b178bf2392c5a&country=de&pageSize=20');
   const data = await res.json();
 
   console.log(`Show data fetched. Count: ${data.articles.length}`);

@@ -1,6 +1,6 @@
 import Link from "next/link";
 // import box_logo from "../public/logo_white.png";
-import Head from 'next/head';
+import Head from "next/head";
 import { Fragment } from "react";
 
 const Layout = props => {
@@ -19,13 +19,13 @@ const Layout = props => {
           href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand:300,400&display=swap"
           rel="stylesheet"
         />
-        <script src="https://kit.fontawesome.com/388729e045.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap" rel="stylesheet"/>
       </Head>
       <header>
         <ul className="nav">
           <li className="nav-element nav-logo">
             <div className="box-logo">
-              {/* <img src="https://i.postimg.cc/x8DLqWCw/logo-white.png" alt="A white box" /> */}
               <img src="/images/logo_white.png" alt="A white box" />
             </div>
             <div className="logo-text">
@@ -33,14 +33,17 @@ const Layout = props => {
               <h5>News You Can Trust</h5>
             </div>
           </li>
-            <li className="nav-links">
-              <Link href="/" >
-                <a>Deutchland - Top Headlines</a>
-              </Link>
-              <Link href="/science" >
-                <a>Science</a>
-              </Link>
-            </li>
+          <li className="nav-links">
+            <Link href="/" passHref>
+              <a>International</a>
+            </Link>
+            <Link href="/science">
+              <a>Deutschland</a>
+            </Link>
+            <Link href="/science">
+              <a>Science</a>
+            </Link>
+          </li>
         </ul>
       </header>
       {props.children}
@@ -54,9 +57,9 @@ const Layout = props => {
         }
 
         header {
-          position:fixed;
-          top:0;
-          left:0;
+          position: fixed;
+          top: 0;
+          left: 0;
           display: flex;
           width: 100%;
           margin: 0 auto;
@@ -74,20 +77,20 @@ const Layout = props => {
         }
         .nav-logo {
           display: flex;
-          margin-right:auto;
-          margin-left:20px;
+          margin-right: auto;
+          margin-left: 20px;
         }
-        .nav-links{
-          display:flex;
-          height:50px;
-          align-items:flex-end;
-          font-size:1.1rem;
+        .nav-links {
+          display: flex;
+          height: 50px;
+          align-items: flex-end;
+          font-size: 1.1rem;
           padding-top: 11px;
           margin-right: 20px;
         }
 
-        .nav-links a{
-          padding-right:10px;
+        .nav-links a {
+          padding-right: 10px;
         }
         .box-logo {
           width: 70px;
@@ -109,11 +112,13 @@ const Layout = props => {
           font-weight: 300;
           font-size: 1rem;
         }
-
       `}</style>
 
       {/* =====GLOBAL STYLES===== */}
       <style jsx global>{`
+        * {
+          box-sizing: border-box;
+        }
         body {
           margin: 0;
           font-family: "Open Sans Condensed", sans-serif;
