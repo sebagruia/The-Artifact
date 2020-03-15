@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 
+## Project Description
+This a News Feed App build with NextJs Framework.
+To populate the site with news Infos, the app connects to [NewsApi](https://newsapi.org/)
+
 ## Getting Started
 
 First, run the development server:
