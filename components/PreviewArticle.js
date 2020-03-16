@@ -1,18 +1,32 @@
 import Link from "next/link";
+import PostLink from "../components/PostLink";
 
 const PreviewArticle = ({ article }) => {
   return (
     <article className="preview-container">
-      <div className="img-container">
-        <img src={article.urlToImage} alt />
-      </div>
+      <PostLink id={article.source.name}>
+        <div className="img-container">
+          {article.urlToImage ? (
+            <img
+              src={article.urlToImage}
+              alt="an image relevant to the news article"
+            />
+          ) : (
+            <h5>No Image Available</h5>
+          )}
+        </div>
+      </PostLink>
 
       <div className="publisher">
         <div className="newspaperIcon-container">
           <img src="/fonts/newspaper.svg" />
         </div>
-        <div className="article-author">
-          <h5>{article.author !== null ? article.author : article.name}</h5>
+        <div className="article-source">
+          <h5>
+            {article.source.name !== null
+              ? article.source.name
+              : article.author}
+          </h5>
         </div>
         <div className="article-time">
           <div className="clock-container">
@@ -25,19 +39,33 @@ const PreviewArticle = ({ article }) => {
       </div>
 
       <hr className="article-hr"></hr>
+      <PostLink id={article.source.name}>
+        <h1 className="article-title">{article.title}</h1>
+      </PostLink>
+      <PostLink id={article.source.name}>
+        <p className="article-description">{article.description}</p>
+      </PostLink>
 
-      <h1 className="article-title">{article.title}</h1>
-      <p className="article-description">{article.description}</p>
+      <h5 className="author-name">{article.author}</h5>
 
+      {/* =====LOCAL STYLES===== */}
       <style jsx>{`
          
         .preview-container {
           flex:30%;
-          margin:10px 20px;
+          max-width:30%;
           border: 1px solid #cccccc;
+          margin-bottom: 20px;
+        }
+        .img-container{
+          text-align:center;
+        }
+        .img-container h5{
+          font-family: 'Source Sans Pro',sans-serif;
+          font-size:1.5rem;
         }
         .publisher{
-              margin:20px
+              margin:20px 10px;
           }
         .newspaperIcon-container {
           width: 30px;
@@ -46,13 +74,13 @@ const PreviewArticle = ({ article }) => {
           vertical-align:middle;
           margin-right: 5px;
         }
-        .article-author {
+        .article-source {
           display: inline-block;
           font-size:1.5rem;
           font-family: 'Quicksand', sans-serif;
           margin:0 20px 0 0;
         }
-        .article-author h5{
+        .article-source h5{
             margin:0 20px 0 0;
         }
         .article-time{
@@ -82,16 +110,37 @@ const PreviewArticle = ({ article }) => {
           font-weight: 400;
           margin:0 10px
         }
-        .article-description{
-            margin:20px 10px;
-            font-family: 'Source Sans Pro', sans-serif;
-            font-weight: 400;
-            font-size: 0.9rem;
-}
+        .article-description {
+          margin:20px 10px;
+          font-family: 'Source Sans Pro', sans-serif;
+          font-weight: 400;
+          font-size: 0.9rem;
         }
-        .article-link {
-          color: #000;
+        .author-name{
+          margin-left:10px;
         }
+        }
+        {/* =====LOCAL STYLES Media Queries===== */}
+        @media screen and (min-width:320px) {
+          .preview-container{
+            flex:90%;
+            max-width:90%;
+          }
+        }
+          
+        @media screen and (min-width:576px) {
+            .preview-container{
+            flex:45%;
+            max-width:45%;
+            }
+        }
+        @media screen and (min-width:992px) {
+            .preview-container{
+            flex:30%;
+            max-width:30%;
+            }
+        }
+
       `}</style>
     </article>
   );

@@ -1,5 +1,4 @@
 import Link from "next/link";
-// import box_logo from "../public/logo_white.png";
 import Head from "next/head";
 import { Fragment } from "react";
 
@@ -7,20 +6,20 @@ const Layout = props => {
   return (
     <Fragment>
       <Head>
-        <title>The Artifact|Home</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="The Most Reliable News Feed" />
-        <meta
-          name="author"
-          content="Sebastian Gruia https://sebagruia.github.io/SebastianGruia-Project-Page/"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand:300,400&display=swap"
-          rel="stylesheet"
-        />
-        <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap" rel="stylesheet"/>
+          <title>The Artifact|News Feed</title>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta name="description" content="The Most Reliable News Feed" />
+          <meta
+            name="author"
+            content="Sebastian Gruia https://sebagruia.github.io/SebastianGruia-Project-Page/"
+          />
+          <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand:300,400&display=swap"
+            rel="stylesheet"
+          />
+          <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap" rel="stylesheet"/>
       </Head>
       <header>
         <ul className="nav">
@@ -34,14 +33,14 @@ const Layout = props => {
             </div>
           </li>
           <li className="nav-links">
-            <Link href="/" passHref>
-              <a>International</a>
+            <Link href="/">
+              <a role="button">International</a>
             </Link>
             <Link href="/science">
-              <a>Deutschland</a>
+              <a role="button">Deutschland</a>
             </Link>
             <Link href="/science">
-              <a>Science</a>
+              <a role="button">Science</a>
             </Link>
           </li>
         </ul>
@@ -132,6 +131,13 @@ const Layout = props => {
         a:hover {
           color: #72c1bf;
         }
+        .link-to-post{
+          color:#000;
+        }
+        .link-to-post:hover{
+          color:#000;
+        }
+
         img {
           width: 100%;
         }
