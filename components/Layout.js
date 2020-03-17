@@ -19,7 +19,7 @@ const Layout = props => {
             rel="stylesheet"
           />
           <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet"/>
-          <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400&display=swap" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap" rel="stylesheet"/>
       </Head>
       <header>
         <ul className="nav">
@@ -49,12 +49,6 @@ const Layout = props => {
 
       {/* =====LOCAL STYLES===== */}
       <style jsx>{`
-        .container {
-          width: 100%;
-          background-color: #000;
-          justify-content: center;
-        }
-
         header {
           position: fixed;
           top: 0;
@@ -131,11 +125,13 @@ const Layout = props => {
         a:hover {
           color: #72c1bf;
         }
-        .link-to-post{
-          color:#000;
-        }
+        .link-to-post,
         .link-to-post:hover{
           color:#000;
+        }
+        .all-posts,
+        .all-posts:hover{
+          color:#a4a4a4;
         }
 
         img {
