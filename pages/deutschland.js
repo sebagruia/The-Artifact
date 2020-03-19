@@ -1,15 +1,14 @@
 import Layout from "../components/Layout";
 import PreviewArticle from "../components/PreviewArticle";
 import Main from '../components/Main';
-// import fetch from "isomorphic-unfetch";
 import fetch from 'node-fetch';
-const International = (props) => {
-  
+
+const Deutschland = (props) => {
   return (
     <Layout>
       <div className="container">
         <h1 className="page-name">
-          International <span className="enhance">Headlines</span>
+          Deutschland <span className="enhance">Headlines</span>
         </h1>
         <Main >
           {props.data.map((article, index) => (
@@ -68,23 +67,10 @@ const International = (props) => {
   );
 };
 
-// Home.getInitialProps = async (context) => {
-//   const res = await fetch(
-//     "http://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
-//   );
-//   const data = await res.json();
-
-//   console.log(`Show data fetched. Count: ${data.articles.length}`);
-
-//   return {
-//     articles: data.articles
-//   };
-// };
-
 export async function getStaticProps (){
   const my_API = '7467175589024bc6942b178bf2392c5a';
   const res = await fetch(
-        `http://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
+        `http://newsapi.org/v2/top-headlines?country=de&pageSize=21&apiKey=${my_API}`
       );
       const data = await res.json();
     
@@ -95,4 +81,4 @@ export async function getStaticProps (){
       };
 }
 
-export default International;
+export default Deutschland;

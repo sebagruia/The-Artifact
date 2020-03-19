@@ -1,9 +1,10 @@
 // import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import Link from "next/link";
+import fetch from 'node-fetch';
 
-const Post = ({ postData }) => {
-  // const router = useRouter();
+const Post = (props) => {
+  console.log(props.pageProps.data[0]);
 
   return (
     <Layout>
@@ -21,9 +22,9 @@ const Post = ({ postData }) => {
             </div>
             <div className="article-source">
               <h5>
-                {postData[0].source.name !== null
-                  ? postData[0].source.name
-                  : postData[0].author}
+                {props.postData.source.name !== null
+                  ? props.postData.source.name
+                  : props.postData.author}
               </h5>
             </div>
             <div className="article-time">
@@ -31,23 +32,23 @@ const Post = ({ postData }) => {
                 <img src="/fonts/clock-regular.svg" />
               </div>
               <div className="article-date">
-                <p>{postData[0].publishedAt}</p>
+                <p>{props.postData.publishedAt}</p>
               </div>
             </div>
           </div>
-          <h1 className="article-title">{postData[0].title}</h1>
+          <h1 className="article-title">{props.postData.title}</h1>
           <div className="img-container">
-            {postData[0].urlToImage ? (
+            {props.postData.urlToImage ? (
               <img
-                src={postData[0].urlToImage}
+                src={props.postData.urlToImage}
                 alt="an image relevant to the news article"
               />
             ) : (
               <h5>No Image Available</h5>
             )}
           </div>
-          <p className="article-content">{postData[0].content}</p>
-          <Link href={postData[0].url}>
+          <p className="article-content">{props.postData.content}</p>
+          <Link href={props.postData.url}>
             <a role="button" className="all-posts">
               Read More
             </a>
@@ -202,19 +203,38 @@ const Post = ({ postData }) => {
   );
 };
 
-Post.getInitialProps = async context => {
-  const id = context.query.id;
-  const res = await fetch(
-    "http://newsapi.org/v2/top-headlines?apiKey=7467175589024bc6942b178bf2392c5a&country=de&pageSize=20"
-  );
-  const data = await res.json();
+// Post.getInitialProps = async (context) => {
+//   const id = context.query.id;
+//   const res = await fetch(
+//     "http://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
+//   );
+//   const data = await res.json();
 
-  const findPost = data.articles.filter(
-    article => `${article.source.id} ${article.source.name}` === id
-  );
+//   const findPost = data.articles.filter(
+//     article => `${article.source.id} ${article.source.name}` === id
+//   );
 
-  return {
-    postData: findPost
-  };
-};
+//   return {
+//     postData: findPost[0]
+//   };
+// };
+
+
+
+// export async function getStaticProps(context){
+//   const id = context.params.id;
+//   console.log(id);
+//   const res = await fetch(
+//     "http://newsapi.org/v2/top-headlines?apiKey=7467175589024bc6942b178bf2392c5a&country=de&pageSize=20"
+//   );
+//   const data = await res.json();
+
+//   const findPost = data.articles.filter(
+//     article => `${article.source.id} ${article.source.name}` === id
+//   );
+
+//   return {
+//     props:{postData: findPost[0]}
+//   };
+// }
 export default Post;

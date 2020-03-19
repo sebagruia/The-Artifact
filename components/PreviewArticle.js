@@ -1,4 +1,3 @@
-import Link from "next/link";
 import PostLink from "../components/PostLink";
 
 const PreviewArticle = ({ article }) => {
