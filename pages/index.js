@@ -68,18 +68,6 @@ const International = (props) => {
   );
 };
 
-// Home.getInitialProps = async (context) => {
-//   const res = await fetch(
-//     "http://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
-//   );
-//   const data = await res.json();
-
-//   console.log(`Show data fetched. Count: ${data.articles.length}`);
-
-//   return {
-//     articles: data.articles
-//   };
-// };
 
 export async function getStaticProps (){
   const my_API = '7467175589024bc6942b178bf2392c5a';

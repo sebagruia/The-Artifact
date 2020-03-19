@@ -1,10 +1,9 @@
-// import { useRouter } from "next/router";
 import Layout from "../../components/Layout";
 import Link from "next/link";
 import fetch from 'node-fetch';
 
 const Post = (props) => {
-  console.log(props.pageProps.data[0]);
+  console.log(props)
 
   return (
     <Layout>
@@ -203,38 +202,22 @@ const Post = (props) => {
   );
 };
 
-// Post.getInitialProps = async (context) => {
-//   const id = context.query.id;
-//   const res = await fetch(
-//     "http://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
-//   );
-//   const data = await res.json();
+Post.getInitialProps = async (context) => {
+  const id = context.query.id;
+  const res = await fetch(
+    "http://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
+  );
+  const data = await res.json();
 
-//   const findPost = data.articles.filter(
-//     article => `${article.source.id} ${article.source.name}` === id
-//   );
+  const findPost = data.articles.filter(
+    article => `${article.source.id} ${article.source.name}` === id
+  );
 
-//   return {
-//     postData: findPost[0]
-//   };
-// };
+  return {
+    postData: findPost[0]
+  };
+};
 
 
 
-// export async function getStaticProps(context){
-//   const id = context.params.id;
-//   console.log(id);
-//   const res = await fetch(
-//     "http://newsapi.org/v2/top-headlines?apiKey=7467175589024bc6942b178bf2392c5a&country=de&pageSize=20"
-//   );
-//   const data = await res.json();
-
-//   const findPost = data.articles.filter(
-//     article => `${article.source.id} ${article.source.name}` === id
-//   );
-
-//   return {
-//     props:{postData: findPost[0]}
-//   };
-// }
 export default Post;

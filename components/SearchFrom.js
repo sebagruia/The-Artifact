@@ -1,32 +1,48 @@
 import { Fragment } from "react";
 
+const SearchForm = ({
+  onChangeCountry,
+  onChangeCategory,
+  onChangeKeyword,
+  onSubmit,
+  countryValue,
+  categoryValue,
+  keyword
+}) => {
 
-const SearchForm = ( {onChangeCountry,
-                      onChangeCategory,
-                      onChangeKeyword,
-                      onSubmit,
-                      countryValue,
-                      categoryValue,
-                      keyword }) => {
+  const generateOptionTag = ()=>{
+  const optionTagArray = ()=>{
+    for(country of countries ){
+      <option value="ar">Argentina</option>
+    }
+  }
+ 
+  }
   return (
     <Fragment>
-      <form onSubmit = {(event)=>onSubmit(event)}>
+      <form onSubmit={event => onSubmit(event)}>
         <div className="input-container-select ">
           <label htmlFor="country" className="country">
             Country
           </label>
           <select
             value={countryValue}
-            onChange={(event)=>onChangeCountry(event)}
+            onChange={event => onChangeCountry(event)}
             id="country"
             name="country"
           >
             <option value="">--select country--</option>
-            <option value="ar">Argentina</option>
-            <option value="at">Austria</option>
             <option value="au">Australia</option>
+            <option value="at">Austria</option>
             <option value="ca">Canada</option>
-            <option value="us">USA</option>
+            <option value="cu">Cuba</option>
+            <option value="fr">France</option>
+            <option value="ro">Romania</option>
+            <option value="ru">Rusia</option>
+            <option value="il">Israel</option>
+            <option value="it">Italy</option>
+            <option value="gb">United Kingdom</option>
+            <option value="us">United States</option>
           </select>
         </div>
 
@@ -36,7 +52,7 @@ const SearchForm = ( {onChangeCountry,
           </label>
           <select
             value={categoryValue}
-            onChange={(event)=>onChangeCategory(event)}
+            onChange={event => onChangeCategory(event)}
             id="category"
             name="category"
           >
@@ -44,7 +60,7 @@ const SearchForm = ( {onChangeCountry,
             <option value="business">business</option>
             <option value="entertainment">entertainment</option>
             <option value="general">general</option>
-            <option value="health">health</option> 
+            <option value="health">health</option>
             <option value="science">science</option>
             <option value="sports">sports</option>
             <option value="technology">technology</option>
@@ -54,7 +70,7 @@ const SearchForm = ( {onChangeCountry,
           <label htmlFor="keyword">Keyword</label>
           <input
             value={keyword}
-            onChange={(event)=>onChangeKeyword(event)}
+            onChange={event => onChangeKeyword(event)}
             type="text"
             id="keyword"
             name="keyword"
@@ -113,8 +129,10 @@ const SearchForm = ( {onChangeCountry,
           background-color: #cccccc;
         }
 
-          {/* =====LOCAL STYLES Media Queries===== */}
-          @media screen and (max-width: 768px) {
+         {
+          /* =====LOCAL STYLES Media Queries===== */
+        }
+        @media screen and (max-width: 768px) {
           form {
             width: 250px;
           }
@@ -126,7 +144,5 @@ const SearchForm = ( {onChangeCountry,
     </Fragment>
   );
 };
-
-
 
 export default SearchForm;
