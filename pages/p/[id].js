@@ -202,11 +202,13 @@ const Post = (props) => {
 };
 
 Post.getInitialProps = async (context) => {
+  const my_API = '7467175589024bc6942b178bf2392c5a';
   const id = context.query.id;
   const res = await fetch(
-    "https://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
+    `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
   );
   const data = await res.json();
+  console.log(data);
 
   const findPost = data.articles.filter(
     article => `${article.source.id} ${article.source.name}` === id
