@@ -28,7 +28,7 @@ const Search = () => {
       window.alert("Fill at Least one Field");
     } else {
       const res = await fetch(
-        `http://newsapi.org/v2/top-headlines?pageSize=34&country=${countryValue}&category=${categoryValue}&q=${keyword}&apiKey=${my_API}`
+        `https://newsapi.org/v2/top-headlines?pageSize=34&country=${countryValue}&category=${categoryValue}&q=${keyword}&apiKey=${my_API}`
       );
       const data = await res.json();
       setSearchResults(data);

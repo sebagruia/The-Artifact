@@ -14,7 +14,6 @@ const Post = (props) => {
           </a>
         </Link>
         <main>
-          {/* <h1>{router.query.id}</h1> */}
           <div className="publisher">
             <div className="newspaperIcon-container">
               <img src="/fonts/newspaper.svg" />
@@ -205,7 +204,7 @@ const Post = (props) => {
 Post.getInitialProps = async (context) => {
   const id = context.query.id;
   const res = await fetch(
-    "http://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
+    "https://newsapi.org/v2/top-headlines?country=us&apiKey=7467175589024bc6942b178bf2392c5a"
   );
   const data = await res.json();
 

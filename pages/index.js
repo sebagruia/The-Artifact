@@ -72,7 +72,7 @@ const International = (props) => {
 export async function getStaticProps (){
   const my_API = '7467175589024bc6942b178bf2392c5a';
   const res = await fetch(
-        `http://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
+        `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
       );
       const data = await res.json();
     
