@@ -1,52 +1,7 @@
-import Link from "next/link";
-import Head from "next/head";
-import { Fragment, useState } from "react";
 
-const Layout = props => {
-  const [active, setActive] = useState("");
-  const [marginNav, setMarginNav] = useState({ margin: "30px 20px" });
-  const [navLinksStyle, SetNavLinksStyle] = useState();
-
-  const onClick = () => {
-    if (active === "") {
-      setActive("is-active");
-      setMarginNav({ margin: "30px 20px 85px 20px" });
-      SetNavLinksStyle({
-        display: "flex",
-        left: "150px"
-      });
-    } else {
-      setActive("");
-      setMarginNav({ margin: "30px 20px" });
-      SetNavLinksStyle({ display: "none" });
-    }
-  };
-
-  return (
-    <Fragment>
-      <Head>
-        <title>The Artifact|News Feed</title>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="The Most Reliable News Feed" />
-        <meta
-          name="author"
-          content="Sebastian Gruia https://sebagruia.github.io/SebastianGruia-Project-Page/"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand:300,400&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600&display=swap"
-          rel="stylesheet"
-        />
-      </Head>
-      <header>
+const Nav = ()=>{
+    return(
+        <header>
         <ul className="nav" style={marginNav}>
           <li className="nav-element nav-logo">
             <div className="box-logo">
@@ -88,11 +43,7 @@ const Layout = props => {
             <span className="hamburger-inner"></span>
           </span>
         </button>
-      </header>
-      {props.children}
-
-      {/* =====LOCAL STYLES===== */}
-      <style jsx>{`
+        <style jsx>{`
         header {
           position: fixed;
           top: 0;
@@ -103,7 +54,6 @@ const Layout = props => {
           justify-content: center;
           background-color: #000;
         }
-
         .nav {
           position: relative;
           display: flex;
@@ -132,7 +82,6 @@ const Layout = props => {
           height: auto;
           margin-right: 10px;
         }
-
         .logo-text h1,
         .logo-text h5 {
           margin: -8px 0 0 0;
@@ -147,8 +96,8 @@ const Layout = props => {
           font-weight: 300;
           font-size: 1rem;
         }
-        {/* @link https://github.com/jonsuh/hamburgers */}
-        .hamburger {
+         {/* @link https://github.com/jonsuh/hamburgers */}
+         .hamburger {
           padding: 7px 7px;
           display: none;
           cursor: pointer;
@@ -243,72 +192,9 @@ const Layout = props => {
          {
           /* =====LOCAL STYLES Media Queries===== */
         }
-        @media screen and (max-width: 576px) {
-          .nav {
-            flex-wrap: wrap;
-          }
-          .nav-logo {
-          }
+        `}</style>
+      </header>
+    );
+}
 
-          .nav-links {
-            flex-direction: column;
-            display: none;
-          }
-          .nav-links {
-            position: absolute;
-            top: 60px;
-            left: 650px;
-          }
-          .nav-links div {
-            padding: 2px 0;
-          }
-
-          .hamburger {
-            position: absolute;
-            display: inline-block;
-            right: 25px;
-            top: 25px;
-          }
-        }
-      `}</style>
-
-      {/* =====GLOBAL STYLES===== */}
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-        body {
-          margin: 0;
-          font-family: "Open Sans Condensed", sans-serif;
-          font-size: 16px;
-          background-color: #fff;
-        }
-        a {
-          color: #ededec;
-          text-decoration: none;
-        }
-        a:hover {
-          color: #72c1bf;
-        }
-        .link-to-post,
-        .link-to-post:hover {
-          color: #000;
-        }
-        .search-icon img {
-          width: 20px;
-          padding-left: 5px;
-        }
-        .all-posts,
-        .all-posts:hover,
-        .search-icon img:hover {
-          color: #a4a4a4;
-        }
-        img {
-          width: 100%;
-        }
-      `}</style>
-    </Fragment>
-  );
-};
-
-export default Layout;
+export default Nav;

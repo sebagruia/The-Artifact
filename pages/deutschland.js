@@ -74,8 +74,6 @@ export async function getStaticProps (){
       );
       const data = await res.json();
     
-      console.log(`Show data fetched. Count: ${data.articles.length}`);
-    
       return {
         props: {data:data.articles}
       };

@@ -1,10 +1,8 @@
 import Layout from "../components/Layout";
 import PreviewArticle from "../components/PreviewArticle";
 import Main from '../components/Main';
-// import fetch from "isomorphic-unfetch";
-import fetch from 'node-fetch';
+import fetch from "isomorphic-unfetch";
 const International = (props) => {
-  console.log(props);
   
   return (
     <Layout>
@@ -70,15 +68,12 @@ const International = (props) => {
 };
 
 
-export async function getStaticProps (){
+International.getStaticProps = async()=>{
   const my_API = '7467175589024bc6942b178bf2392c5a';
   const res = await fetch(
         `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
       );
       const data = await res.json();
-    
-      console.log(`Show data fetched. Count: ${data.articles.length}`);
-    
       return {
         props: {data:data.articles}
       };

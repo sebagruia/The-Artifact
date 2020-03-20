@@ -213,7 +213,6 @@ Post.getInitialProps = async context => {
       article => `${article.source.id}${article.source.name}${article.author}` === id
     );
   
-
   return {
     postData: findPost[0]
   };
