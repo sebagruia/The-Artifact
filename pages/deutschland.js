@@ -70,7 +70,7 @@ const Deutschland = (props) => {
 Deutschland.getInitialProps = async ()=>{
   const my_API = '7467175589024bc6942b178bf2392c5a';
   const res = await fetch(
-        `http://newsapi.org/v2/top-headlines?country=de&pageSize=21&apiKey=${my_API}`
+        `https://newsapi.org/v2/top-headlines?country=de&pageSize=21&apiKey=${my_API}`
       );
       const data = await res.json();
       console.log(data);
