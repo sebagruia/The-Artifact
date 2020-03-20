@@ -1,9 +1,9 @@
 import Layout from "../../components/Layout";
 import Link from "next/link";
-import fetch from 'node-fetch';
+import fetch from "node-fetch";
 
-const Post = (props) => {
-  console.log(props)
+const Post = ({ postData }) => {
+  console.log(postData);
 
   return (
     <Layout>
@@ -20,9 +20,9 @@ const Post = (props) => {
             </div>
             <div className="article-source">
               <h5>
-                {props.postData.source.name !== null
-                  ? props.postData.source.name
-                  : props.postData.author}
+                {postData.source.name !== null
+                  ? postData.source.name
+                  : postData.author}
               </h5>
             </div>
             <div className="article-time">
@@ -30,23 +30,23 @@ const Post = (props) => {
                 <img src="/fonts/clock-regular.svg" />
               </div>
               <div className="article-date">
-                <p>{props.postData.publishedAt}</p>
+                <p>{postData.publishedAt}</p>
               </div>
             </div>
           </div>
-          <h1 className="article-title">{props.postData.title}</h1>
+          <h1 className="article-title">{postData.title}</h1>
           <div className="img-container">
-            {props.postData.urlToImage ? (
+            {postData.urlToImage ? (
               <img
-                src={props.postData.urlToImage}
+                src={postData.urlToImage}
                 alt="an image relevant to the news article"
               />
             ) : (
               <h5>No Image Available</h5>
             )}
           </div>
-          <p className="article-content">{props.postData.content}</p>
-          <Link href={props.postData.url}>
+          <p className="article-content">{postData.content}</p>
+          <Link href={postData.url}>
             <a role="button" className="all-posts">
               Read More
             </a>
@@ -201,24 +201,22 @@ const Post = (props) => {
   );
 };
 
-Post.getInitialProps = async (context) => {
-  const my_API = '7467175589024bc6942b178bf2392c5a';
+Post.getInitialProps = async context => {
+  const my_API = "7467175589024bc6942b178bf2392c5a";
   const id = context.query.id;
   const res = await fetch(
     `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
   );
   const data = await res.json();
-  console.log(data);
 
   const findPost = data.articles.filter(
-    article => `${article.source.id} ${article.source.name}` === id
-  );
+      article => `${article.source.id}${article.source.name}${article.author}` === id
+    );
+  
 
   return {
     postData: findPost[0]
   };
 };
-
-
 
 export default Post;

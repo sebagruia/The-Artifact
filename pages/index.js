@@ -4,6 +4,7 @@ import Main from '../components/Main';
 // import fetch from "isomorphic-unfetch";
 import fetch from 'node-fetch';
 const International = (props) => {
+  console.log(props);
   
   return (
     <Layout>
