@@ -1,9 +1,11 @@
+import Link from "next/link";
 
-const Nav = ()=>{
+const Header = ({onClick,marginNav,navLinksStyle,active})=>{
     return(
         <header>
         <ul className="nav" style={marginNav}>
-          <li className="nav-element nav-logo">
+          <Link href="/">
+          <li className="nav-logo">
             <div className="box-logo">
               <img src="/images/logo_white.png" alt="A white box" />
             </div>
@@ -12,6 +14,8 @@ const Nav = ()=>{
               <h5>News You Can Trust</h5>
             </div>
           </li>
+          </Link>
+          
           <li className="nav-links" style={navLinksStyle}>
             <div>
               <Link href="/">
@@ -35,7 +39,7 @@ const Nav = ()=>{
           </li>
         </ul>
         <button
-          onClick={onClick}
+          onClick={()=>onClick()}
           className={`hamburger hamburger--spin ${active}`}
           type="button"
         >
@@ -66,6 +70,7 @@ const Nav = ()=>{
         .nav-logo {
           display: flex;
           margin-right: auto;
+          cursor:pointer;
         }
         .nav-links {
           display: flex;
@@ -189,12 +194,39 @@ const Nav = ()=>{
             transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
         }
 
-         {
+        {
           /* =====LOCAL STYLES Media Queries===== */
+        }
+        @media screen and (max-width: 576px) {
+          .nav {
+            flex-wrap: wrap;
+          }
+          .nav-logo {
+          }
+
+          .nav-links {
+            flex-direction: column;
+            display: none;
+          }
+          .nav-links {
+            position: absolute;
+            top: 60px;
+            left: 650px;
+          }
+          .nav-links div {
+            padding: 2px 0;
+          }
+
+          .hamburger {
+            position: absolute;
+            display: inline-block;
+            right: 25px;
+            top: 25px;
+          }
         }
         `}</style>
       </header>
     );
 }
 
-export default Nav;
+export default Header;

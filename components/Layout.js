@@ -1,8 +1,21 @@
-import Link from "next/link";
 import Head from "next/head";
-import { Fragment, useState } from "react";
+import Header from "../components/Header";
+import Main from "../components/Main";
+import PostContainer from "../components/PostContainer";
+import PreviewArticle from "../components/PreviewArticle";
+import { useRouter } from "next/router";
+import { Fragment, useState, useEffect } from "react";
 
-const Layout = props => {
+const Layout = ({
+  children,
+  internationalArticles,
+  deutschlandArticles,
+  searchArticles,
+  postData
+}) => {
+  const router = useRouter();
+  const curentRoute = router.route;
+
   const [active, setActive] = useState("");
   const [marginNav, setMarginNav] = useState({ margin: "30px 20px" });
   const [navLinksStyle, SetNavLinksStyle] = useState();
@@ -46,53 +59,61 @@ const Layout = props => {
           rel="stylesheet"
         />
       </Head>
-      <header>
-        <ul className="nav" style={marginNav}>
-          <li className="nav-element nav-logo">
-            <div className="box-logo">
-              <img src="/images/logo_white.png" alt="A white box" />
-            </div>
-            <div className="logo-text">
-              <h1>The Artifact</h1>
-              <h5>News You Can Trust</h5>
-            </div>
-          </li>
-          <li className="nav-links" style={navLinksStyle}>
-            <div>
-              <Link href="/">
-                <a role="button">International</a>
-              </Link>
-            </div>
-
-            <div>
-              <Link href="/deutschland">
-                <a role="button">Deutschland</a>
-              </Link>
-            </div>
-
-            <div>
-              <Link href="/search">
-                <a role="button" className="search-icon">
-                  <img src="/fonts/searchIcon.png" alt="magnifier" />
-                </a>
-              </Link>
-            </div>
-          </li>
-        </ul>
-        <button
-          onClick={onClick}
-          className={`hamburger hamburger--spin ${active}`}
-          type="button"
-        >
-          <span className="hamburger-box">
-            <span className="hamburger-inner"></span>
-          </span>
-        </button>
-      </header>
-      {props.children}
+      <Header
+        onClick={onClick}
+        marginNav={marginNav}
+        navLinksStyle={navLinksStyle}
+        active={active}
+      />
+      <div className="container">
+      {children}
+        <Main>
+          {curentRoute === "/" ? (
+            internationalArticles.map((article, index) => (
+              <PreviewArticle
+                key={`${article.source.id}${article.source.name}${index}`}
+                article={article}
+              />
+            ))
+          ) : curentRoute === "/deutschland" ? (
+            deutschlandArticles.map((article, index) => (
+              <PreviewArticle
+                key={`${article.source.id}${article.source.name}${index}`}
+                article={article}
+              />
+            ))
+          ) : curentRoute === "/search" ? (
+            searchArticles &&
+            searchArticles.map((article, index) => (
+              <PreviewArticle
+                key={`${article.source.id}${article.source.name}${index}`}
+                article={article}
+              />
+            ))
+          ) :<PostContainer postData={postData} />
+          }
+          
+        </Main>
+      </div>
 
       {/* =====LOCAL STYLES===== */}
       <style jsx>{`
+        .container {
+          width: 65%;
+          margin: 0 auto;
+          margin-top: 180px;
+        }
+        .page-name {
+          margin-left: 17px;
+          text-align: left;
+          font-family: "Quicksand", sans-serif;
+          font-weight: 400;
+          font-variant: small-caps;
+        }
+        .page-name .enhance {
+          font-variant: small-caps;
+          font-size: 1rem;
+        }
         header {
           position: fixed;
           top: 0;
@@ -147,7 +168,9 @@ const Layout = props => {
           font-weight: 300;
           font-size: 1rem;
         }
-        {/* @link https://github.com/jonsuh/hamburgers */}
+         {
+          /* @link https://github.com/jonsuh/hamburgers */
+        }
         .hamburger {
           padding: 7px 7px;
           display: none;
@@ -243,31 +266,26 @@ const Layout = props => {
          {
           /* =====LOCAL STYLES Media Queries===== */
         }
-        @media screen and (max-width: 576px) {
-          .nav {
-            flex-wrap: wrap;
+        @media screen and (min-width: 320px) {
+          .container {
+            width: 100%;
+            margin-top: 190px;
           }
-          .nav-logo {
-          }
+        }
 
-          .nav-links {
-            flex-direction: column;
-            display: none;
+        @media screen and (min-width: 1200px) {
+          .container {
+            width: 90%;
           }
-          .nav-links {
-            position: absolute;
-            top: 60px;
-            left: 650px;
+        }
+        @media screen and (min-width: 1500px) {
+          .container {
+            width: 75%;
           }
-          .nav-links div {
-            padding: 2px 0;
-          }
-
-          .hamburger {
-            position: absolute;
-            display: inline-block;
-            right: 25px;
-            top: 25px;
+        }
+        @media screen and (min-width: 1600px) {
+          .container {
+            width: 65%;
           }
         }
       `}</style>

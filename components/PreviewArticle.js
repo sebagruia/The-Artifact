@@ -3,7 +3,9 @@ import PostLink from "../components/PostLink";
 const PreviewArticle = ({ article }) => {
   return (
     <article className="preview-container">
-      <PostLink id={`${article.source.id}${article.source.name}${article.author}`}>
+      <PostLink
+        id={`${article.source.id}${article.source.name}${article.author}`}
+      >
         <div className="img-container">
           {article.urlToImage ? (
             <img
@@ -38,10 +40,15 @@ const PreviewArticle = ({ article }) => {
       </div>
 
       <hr className="article-hr"></hr>
-      <PostLink id={`${article.source.id} ${article.source.name}`}>
+      <PostLink
+        id={`${article.source.id}${article.source.name}${article.author}`}
+      >
         <h1 className="article-title">{article.title}</h1>
       </PostLink>
-      <PostLink id={`${article.source.id} ${article.source.name}`}>
+      
+      <PostLink
+        id={`${article.source.id}${article.source.name}${article.author}`}
+      >
         <p className="article-description">{article.description}</p>
       </PostLink>
 
