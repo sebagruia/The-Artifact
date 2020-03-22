@@ -4,7 +4,7 @@ import Main from "../components/Main";
 import PostContainer from "../components/PostContainer";
 import PreviewArticle from "../components/PreviewArticle";
 import { useRouter } from "next/router";
-import { Fragment, useState, useEffect } from "react";
+import { Fragment, useState} from "react";
 
 const Layout = ({
   children,
@@ -13,6 +13,7 @@ const Layout = ({
   searchArticles,
   postData
 }) => {
+  
   const router = useRouter();
   const curentRoute = router.route;
 

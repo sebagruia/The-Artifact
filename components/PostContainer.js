@@ -3,6 +3,7 @@ import Link from "next/link";
 const PostContainer = ({ postData }) => {
   return (
     <div className="post-container">
+      
          <Link href="/">
           <a role="button" className="all-posts">
             All Articles

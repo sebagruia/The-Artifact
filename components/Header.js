@@ -66,6 +66,7 @@ const Header = ({onClick,marginNav,navLinksStyle,active})=>{
           align-items: center;
           padding: 0;
           margin: 40px 20px;
+          transition: margin 0.3s;
         }
         .nav-logo {
           display: flex;

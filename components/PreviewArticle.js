@@ -13,8 +13,8 @@ const PreviewArticle = ({ article }) => {
               alt="an image relevant to the news article"
             />
           ) : (
-            <h5>No Image Available</h5>
-          )}
+              <h5>No Image Available</h5>
+            )}
         </div>
       </PostLink>
 
@@ -45,7 +45,7 @@ const PreviewArticle = ({ article }) => {
       >
         <h1 className="article-title">{article.title}</h1>
       </PostLink>
-      
+
       <PostLink
         id={`${article.source.id}${article.source.name}${article.author}`}
       >
