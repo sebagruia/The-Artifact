@@ -1,13 +1,14 @@
+const SearchForm = props => {
+  const {
+    countryCode,
+    categoryValue,
+    keyword,
+    onSubmit,
+    onChangeCountry,
+    onChangeCategory,
+    onChangeKeyword
+  } = props;
 
-const SearchForm = ({
-  countryValue,
-  categoryValue,
-  keyword,
-  onSubmit,
-  onChangeCountry,
-  onChangeCategory,
-  onChangeKeyword
-}) => {
   return (
     <form onSubmit={event => onSubmit(event)}>
       <div className="input-container-select ">
@@ -15,7 +16,7 @@ const SearchForm = ({
           Country
         </label>
         <select
-          value={countryValue}
+          value={countryCode}
           onChange={event => onChangeCountry(event)}
           id="country"
           name="country"

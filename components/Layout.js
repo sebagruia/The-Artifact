@@ -1,21 +1,19 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Main from "../components/Main";
-import PostContainer from "../components/PostContainer";
-import PreviewArticle from "../components/PreviewArticle";
-import { useRouter } from "next/router";
-import { Fragment, useState} from "react";
+import { Fragment, useState } from "react";
 
-const Layout = ({
-  children,
-  internationalArticles,
-  deutschlandArticles,
-  searchArticles,
-  postData
-}) => {
-  
-  const router = useRouter();
-  const curentRoute = router.route;
+const Layout = props => {
+  const {
+    children,
+    countryCode,
+    categoryValue,
+    keyword,
+    internationalArticles,
+    deutschlandArticles,
+    searchArticles,
+    postData
+  } = props;
 
   const [active, setActive] = useState("");
   const [marginNav, setMarginNav] = useState({ margin: "30px 20px" });
@@ -67,34 +65,16 @@ const Layout = ({
         active={active}
       />
       <div className="container">
-      {children}
-        <Main>
-          {curentRoute === "/" ? (
-            internationalArticles.map((article, index) => (
-              <PreviewArticle
-                key={`${article.source.id}${article.source.name}${index}`}
-                article={article}
-              />
-            ))
-          ) : curentRoute === "/deutschland" ? (
-            deutschlandArticles.map((article, index) => (
-              <PreviewArticle
-                key={`${article.source.id}${article.source.name}${index}`}
-                article={article}
-              />
-            ))
-          ) : curentRoute === "/search" ? (
-            searchArticles &&
-            searchArticles.map((article, index) => (
-              <PreviewArticle
-                key={`${article.source.id}${article.source.name}${index}`}
-                article={article}
-              />
-            ))
-          ) :<PostContainer postData={postData} />
-          }
-          
-        </Main>
+        {children}
+        <Main
+          internationalArticles={internationalArticles}
+          deutschlandArticles={deutschlandArticles}
+          searchArticles={searchArticles}
+          postData={postData}
+          countryCode={countryCode}
+          categoryValue={categoryValue}
+          keyword={keyword}
+        />
       </div>
 
       {/* =====LOCAL STYLES===== */}

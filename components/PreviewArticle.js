@@ -1,10 +1,15 @@
 import PostLink from "../components/PostLink";
 
-const PreviewArticle = ({ article }) => {
+const PreviewArticle = props => {
+  const { article, country, countryCode, categoryValue, keyword } = props;
   return (
     <article className="preview-container">
       <PostLink
         id={`${article.source.id}${article.source.name}${article.author}`}
+        countryCode={countryCode}
+        categoryValue={categoryValue}
+        keyword={keyword}
+        country={country}
       >
         <div className="img-container">
           {article.urlToImage ? (
@@ -13,8 +18,8 @@ const PreviewArticle = ({ article }) => {
               alt="an image relevant to the news article"
             />
           ) : (
-              <h5>No Image Available</h5>
-            )}
+            <h5>No Image Available</h5>
+          )}
         </div>
       </PostLink>
 
@@ -42,12 +47,20 @@ const PreviewArticle = ({ article }) => {
       <hr className="article-hr"></hr>
       <PostLink
         id={`${article.source.id}${article.source.name}${article.author}`}
+        countryCode={countryCode}
+        categoryValue={categoryValue}
+        keyword={keyword}
+        country={country}
       >
         <h1 className="article-title">{article.title}</h1>
       </PostLink>
 
       <PostLink
         id={`${article.source.id}${article.source.name}${article.author}`}
+        countryCode={countryCode}
+        categoryValue={categoryValue}
+        keyword={keyword}
+        country={country}
       >
         <p className="article-description">{article.description}</p>
       </PostLink>

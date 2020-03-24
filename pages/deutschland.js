@@ -1,9 +1,9 @@
 import Layout from "../components/Layout";
 import fetch from "isomorphic-unfetch";
 
-const Deutschland = props => {
+const Deutschland = ({data}) => {
   return (
-    <Layout deutschlandArticles={props.data}>
+    <Layout deutschlandArticles={data}>
       <h1 className="page-name">
         Deutschland <span className="enhance">Headlines</span>
       </h1>
