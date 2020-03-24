@@ -25,7 +25,7 @@ const PreviewArticle = props => {
 
       <div className="publisher">
         <div className="newspaperIcon-container">
-          <img src="/fonts/newspaper.svg" />
+          <img src="/fonts/newspaper.svg"  alt="newspaper icon"/>
         </div>
         <div className="article-source">
           <h5>
@@ -36,7 +36,7 @@ const PreviewArticle = props => {
         </div>
         <div className="article-time">
           <div className="clock-container">
-            <img src="/fonts/clock-regular.svg" />
+            <img src="/fonts/clock-regular.svg" alt="clock icon" />
           </div>
           <div className="article-date">
             <p>{article.publishedAt}</p>

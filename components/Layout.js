@@ -11,6 +11,7 @@ const Layout = props => {
     keyword,
     internationalArticles,
     deutschlandArticles,
+    romaniaArticles,
     searchArticles,
     postData
   } = props;
@@ -22,7 +23,7 @@ const Layout = props => {
   const onClick = () => {
     if (active === "") {
       setActive("is-active");
-      setMarginNav({ margin: "30px 20px 85px 20px" });
+      setMarginNav({ margin: "30px 20px 120px 20px" });
       SetNavLinksStyle({
         display: "flex",
         left: "150px"
@@ -69,6 +70,7 @@ const Layout = props => {
         <Main
           internationalArticles={internationalArticles}
           deutschlandArticles={deutschlandArticles}
+          romaniaArticles={romaniaArticles}
           searchArticles={searchArticles}
           postData={postData}
           countryCode={countryCode}

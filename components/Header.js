@@ -30,6 +30,12 @@ const Header = ({onClick,marginNav,navLinksStyle,active})=>{
             </div>
 
             <div>
+              <Link href="/romania">
+                <a role="button">Romania</a>
+              </Link>
+            </div>
+
+            <div>
               <Link href="/search">
                 <a role="button" className="search-icon">
                   <img src="/fonts/searchIcon.png" alt="magnifier" />

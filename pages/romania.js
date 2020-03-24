@@ -1,11 +1,11 @@
 import Layout from "../components/Layout";
 import fetch from "isomorphic-unfetch";
 
-const Deutschland = ({data}) => {
+const Romania = ({data}) => {
   return (
-    <Layout deutschlandArticles={data}>
+    <Layout romaniaArticles={data}>
       <h1 className="page-name">
-        Deutschland <span className="enhance">Headlines</span>
+        Romania <span className="enhance">Headlines</span>
       </h1>
       <hr></hr>
       <style jsx>{`
@@ -42,10 +42,10 @@ const Deutschland = ({data}) => {
   );
 };
 
-Deutschland.getInitialProps = async () => {
+Romania.getInitialProps = async () => {
   const my_API = "7467175589024bc6942b178bf2392c5a";
   const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=de&pageSize=21&apiKey=${my_API}`
+    `https://newsapi.org/v2/top-headlines?country=ro&pageSize=21&apiKey=${my_API}`
   );
   const data = await res.json();
   return {
@@ -53,4 +53,4 @@ Deutschland.getInitialProps = async () => {
   };
 };
 
-export default Deutschland;
+export default Romania;

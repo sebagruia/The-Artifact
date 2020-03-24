@@ -3,15 +3,14 @@ import Link from "next/link";
 const PostContainer = ({ postData }) => {
   return (
     <div className="post-container">
-      
-         <Link href="/">
-          <a role="button" className="all-posts">
-            All Articles
-          </a>
-        </Link>
+      <Link href="/">
+        <a role="button" className="all-posts">
+          All Articles
+        </a>
+      </Link>
       <div className="publisher">
         <div className="newspaperIcon-container">
-          <img src="/fonts/newspaper.svg" />
+          <img src="/fonts/newspaper.svg" alt="newspaper icon" />
         </div>
         <div className="article-source">
           <h5>
@@ -22,7 +21,7 @@ const PostContainer = ({ postData }) => {
         </div>
         <div className="article-time">
           <div className="clock-container">
-            <img src="/fonts/clock-regular.svg" />
+            <img src="/fonts/clock-regular.svg" alt="clock icon" />
           </div>
           <div className="article-date">
             <p>{postData.publishedAt}</p>
@@ -41,11 +40,9 @@ const PostContainer = ({ postData }) => {
         )}
       </div>
       <p className="article-content">{postData.content}</p>
-      <Link href={postData.url}>
-        <a role="button" className="all-posts">
-          Read More
-        </a>
-      </Link>
+      <a href={postData.url} role="button" className="all-posts">
+        Read More
+      </a>
 
       <style jsx>{`
         .post-container {

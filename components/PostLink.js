@@ -5,7 +5,7 @@ const PostLink = props => {
   return (
     <Link
       href="/p/[...id]"
-      as={`/p/${id}?country=${country ? country : countryCode}&q=${
+      as={`/p/${id}?country=${country ? country : countryCode ? countryCode : ""}&q=${
         keyword ? keyword : ""
       }&category=${categoryValue ? categoryValue : ""}`}
     >

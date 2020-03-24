@@ -9,6 +9,7 @@ const Main = props => {
   const {
     internationalArticles,
     deutschlandArticles,
+    romaniaArticles,
     searchArticles,
     postData,
     countryCode,
@@ -34,6 +35,16 @@ const Main = props => {
             article={article}
           />
         ))
+        
+      ) : curentRoute === "/romania" ? (
+        romaniaArticles.map((article, index) => (
+          <PreviewArticle
+            country="ro"
+            key={`${article.source.id}${article.source.name}${index}`}
+            article={article}
+          />
+        ))
+
       ) : curentRoute === "/search" ? (
         searchArticles &&
         searchArticles.map((article, index) => (
