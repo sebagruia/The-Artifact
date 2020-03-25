@@ -135,6 +135,7 @@ const PreviewArticle = props => {
           font-family: 'Source Sans Pro', sans-serif;
           font-weight: 400;
           font-size: 0.9rem;
+          overflow-x: hidden;
         }
         .author-name{
           margin-left:10px;

@@ -6,6 +6,9 @@ To populate the site with news Infos, the app connects to [NewsApi](https://news
 In the Search page, you can customize your search using three criteria like country, category and search keyword.
 In order for the Search form to submit the request at least one of the above input fields should not be empty.
 
+## Project Link
+[THE ARTIFACT](https://the-artifact.now.sh/)
+
 ## Getting Started
 
 First, run the development server:
