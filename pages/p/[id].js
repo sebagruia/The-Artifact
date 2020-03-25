@@ -14,10 +14,9 @@ Post.getInitialProps = async context => {
   );
 
   const data = await res.json();
-
   const findPost = data.articles.filter(
     article =>
-      `${article.source.id}${article.source.name}${article.author}` === id
+      `${article.source.id}${article.source.name}${article.author}${article.publishedAt}` === id
   );
   return {
     postData: findPost[0]
