@@ -46,6 +46,7 @@ const Layout = props => {
           name="author"
           content="Sebastian Gruia https://sebagruia.github.io/SebastianGruia-Project-Page/"
         />
+        <link rel="icon" href="/images/logo_black.png"></link>
         <link
           href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300|Quicksand:300,400&display=swap"
           rel="stylesheet"

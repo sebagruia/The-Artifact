@@ -9,7 +9,7 @@ In order for the Search form to submit the request at least one of the above inp
 ## Project Link
 [THE ARTIFACT](https://the-artifact.now.sh/)
 
-## Getting Started
+## Getting Started-de
 
 First, run the development server:
 
