@@ -2,7 +2,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Project Description
 This a News Feed App build with NextJs Framework.
-To populate the site with news Infos, the app connects to [NewsApi](https://newsapi.org/)
+To populate the site with news Infos, the app connects to [NewsApi](https://newsapi.org/).
+In the Search page, you can customize your search using three criteria like country, category and search keyword.
+In order for the Search form to submit the request at least one of the above input fields should not be empty.
 
 ## Getting Started
 
