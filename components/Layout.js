@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Main from "../components/Main";
+import Footer from "../components/Footer";
 import { Fragment, useState } from "react";
 
 const Layout = props => {
@@ -79,6 +80,7 @@ const Layout = props => {
           keyword={keyword}
         />
       </div>
+      <Footer />
 
       {/* =====LOCAL STYLES===== */}
       <style jsx>{`
