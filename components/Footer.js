@@ -85,8 +85,6 @@ const Footer = () => {
           margin-left: auto;
           margin-right: 20px;
         }
-        .powered-by-icon {
-        }
 
         /* =====LOCAL STYLES Media Queries===== */
         @media screen and (max-width: 576px) {
