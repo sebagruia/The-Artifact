@@ -1,38 +1,45 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
+import { Fragment } from "react";
 
 const Footer = () => {
+  const router = useRouter();
+  const curentRoute = router.route;
   return (
-    <footer>
-      <div className="footer-items">
-        <div className="footer-copyright">
-          <div className="footer-copyright-author">
-            <a href="https://github.com/sebagruia" role="button">
-              <h5>
-                Copyright <span className="author">Sebastian Gruia</span>
-              </h5>
-            </a>
+    <Fragment>
+      {curentRoute !== "/search" ? (
+        <footer>
+          <div className="footer-items">
+            <div className="footer-copyright">
+              <div className="footer-copyright-author">
+                <a href="https://github.com/sebagruia" role="button">
+                  <h5>
+                    Copyright <span className="author">Sebastian Gruia</span>
+                  </h5>
+                </a>
+              </div>
+              <div className="footer-copyright-icon">
+                <a href="https://github.com/sebagruia" role="button">
+                  <img src="/images/iconmonstr-github.png" />
+                </a>
+              </div>
+            </div>
+            <div className="powered-by">
+              <div className="powered-by-author">
+                <a href="https://newsapi.org/" role="button">
+                  <h5>
+                    Powered By - <span>News API</span>
+                  </h5>
+                </a>
+              </div>
+              <div className="powered-by-icon">
+                <a href="https://newsapi.org/" role="button">
+                  <img src="/images/iconmonstr-brick.png" />
+                </a>
+              </div>
+            </div>
           </div>
-          <div className="footer-copyright-icon">
-            <a href="https://github.com/sebagruia" role="button">
-              <img src="/images/iconmonstr-github.png" />
-            </a>
-          </div>
-        </div>
-        <div className="powered-by">
-          <div className="powered-by-author">
-            <a href="https://newsapi.org/" role="button">
-              <h5>
-                Powered By - <span>News API</span>
-              </h5>
-            </a>
-          </div>
-          <div className="powered-by-icon">
-            <a href="https://newsapi.org/" role="button">
-              <img src="/images/iconmonstr-brick.png" />
-            </a>
-          </div>
-        </div>
-      </div>
+        </footer>
+      ) : null}
 
       <style jsx>{`
         footer {
@@ -101,7 +108,7 @@ const Footer = () => {
           }
         }
       `}</style>
-    </footer>
+    </Fragment>
   );
 };
 
