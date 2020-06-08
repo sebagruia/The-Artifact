@@ -1,6 +1,7 @@
 import Layout from "../components/Layout";
 import React, { useState } from "react";
 import SearchForm from "../components/SearchForm";
+import fetch from "isomorphic-unfetch";
 
 const Search = () => {
   let [countryCode, setCountryCode] = useState("");
