@@ -2,11 +2,9 @@ import Layout from "../components/Layout";
 import React, { useState } from "react";
 import SearchForm from "../components/SearchForm";
 import fetch from "isomorphic-unfetch";
-import {useRouter} from "next/router";
 
 
 const Search = ({data}) => {
-  const router = useRouter();
   let [countryCode, setCountryCode] = useState("");
   let [categoryValue, setCategoryValue] = useState("");
   let [keyword, setkeyword] = useState("");
