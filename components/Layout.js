@@ -17,7 +17,6 @@ const Layout = props => {
     postData
   } = props;
 
-  console.log(searchArticles);
 
   const [active, setActive] = useState("");
   const [marginNav, setMarginNav] = useState({ margin: "30px 20px" });

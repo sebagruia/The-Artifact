@@ -5,7 +5,6 @@ const SearchForm = props => {
     countryCode,
     categoryValue,
     keyword,
-    // onSubmit,
     onChangeCountry,
     onChangeCategory,
     onChangeKeyword
