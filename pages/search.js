@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import SearchForm from "../components/SearchForm";
 import fetch from "isomorphic-unfetch";
 import {useRouter} from "next/router";
-import Router from "next/router";
 
 
 const Search = ({data}) => {
@@ -113,7 +112,7 @@ const Search = ({data}) => {
   );
 };
 
-Search.getInitialProps = async (context)=>{
+export async function getServerSideProps(context) {
   const {query} = context;
   const my_API = "7467175589024bc6942b178bf2392c5a";
   if (query.countryCode === "" && query.categoryValue === "" && query.keyword === "") {
@@ -124,7 +123,8 @@ Search.getInitialProps = async (context)=>{
     );
     const data = await res.json();
     return {
-      data:data.articles
+      props:{data:data.articles}
+      
     }
     // console.log(data.articles);
     // setSearchResults(data.articles);
