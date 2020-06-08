@@ -5,6 +5,7 @@ const Post = ({ postData }) => {
   return <Layout postData={postData}></Layout>;
 };
 
+
 Post.getInitialProps = async context => {
   const my_API = "7467175589024bc6942b178bf2392c5a";
   const { id, country, q, category } = context.query;

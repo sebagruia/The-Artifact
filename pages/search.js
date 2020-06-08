@@ -28,6 +28,7 @@ const Search = () => {
         `https://newsapi.org/v2/top-headlines?pageSize=34&country=${countryCode}&category=${categoryValue}&q=${keyword}&apiKey=${my_API}`
       );
       const data = await res.json();
+      console.log(data.articles);
       setSearchResults(data.articles);
     }
   };

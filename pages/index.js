@@ -1,5 +1,4 @@
 import Layout from "../components/Layout";
-
 const International = ({data}) => {
   return (
     <Layout internationalArticles={data}>
