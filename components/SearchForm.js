@@ -1,16 +1,34 @@
+import Router from "next/router";
+
 const SearchForm = props => {
   const {
     countryCode,
     categoryValue,
     keyword,
-    onSubmit,
+    // onSubmit,
     onChangeCountry,
     onChangeCategory,
     onChangeKeyword
   } = props;
 
+  const handleSubmit = (event, countryCode, categoryValue, keyword)=>{
+    event.preventDefault();
+    if (countryCode === "" && categoryValue === "" && keyword === "") {
+      window.alert("Fill at Least one Field");
+    } else {
+      Router.push({
+        pathname:"/search",
+        query:{
+          countryCode:countryCode,
+          categoryValue:categoryValue,
+          keyword:keyword
+        }
+      })
+    }
+  }
+
   return (
-    <form onSubmit={event => onSubmit(event)}>
+    <form onSubmit={()=>handleSubmit(event, countryCode, categoryValue, keyword)}>
       <div className="input-container-select ">
         <label htmlFor="country" className="country">
           Country

@@ -2,13 +2,19 @@ import Layout from "../components/Layout";
 import React, { useState } from "react";
 import SearchForm from "../components/SearchForm";
 import fetch from "isomorphic-unfetch";
+import {useRouter} from "next/router";
+import Router from "next/router";
 
-const Search = () => {
+
+const Search = ({data}) => {
+  console.log(data);
+  const searchArticles = data;
+  const router = useRouter();
+  console.log(router);
   let [countryCode, setCountryCode] = useState("");
   let [categoryValue, setCategoryValue] = useState("");
   let [keyword, setkeyword] = useState("");
-  let [searchArticles, setSearchResults] = useState();
-
+  // let [searchArticles, setSearchResults] = useState();
   const onChangeCountry = event => {
     countryCode = setCountryCode(event.target.value);
   };
@@ -19,20 +25,35 @@ const Search = () => {
     keyword = setkeyword(event.target.value);
   };
 
-  const onSubmit = async event => {
-    const my_API = "7467175589024bc6942b178bf2392c5a";
-    event.preventDefault();
-    if (countryCode === "" && categoryValue === "" && keyword === "") {
-      window.alert("Fill at Least one Field");
-    } else {
-      const res = await fetch(
-        `https://newsapi.org/v2/top-headlines?pageSize=34&country=${countryCode}&category=${categoryValue}&q=${keyword}&apiKey=${my_API}`
-      );
-      const data = await res.json();
-      console.log(data.articles);
-      setSearchResults(data.articles);
-    }
-  };
+  // const onSubmit = async event => {
+  //   const my_API = "7467175589024bc6942b178bf2392c5a";
+  //   event.preventDefault();
+  //   if (countryCode === "" && categoryValue === "" && keyword === "") {
+  //     window.alert("Fill at Least one Field");
+  //   } else {
+  //     const res = await fetch(
+  //       `https://newsapi.org/v2/top-headlines?pageSize=34&country=${countryCode}&category=${categoryValue}&q=${keyword}&apiKey=${my_API}`
+  //     );
+  //     const data = await res.json();
+  //     console.log(data.articles);
+  //     setSearchResults(data.articles);
+  //   }
+  // };
+  // const onSubmit = (event, countryCode, categoryValue, keyword ) => {
+  //   event.preventDefault();
+  //   if (countryCode === "" && categoryValue === "" && keyword === "") {
+  //     window.alert("Fill at Least one Field");
+  //   } else {
+  //     Router.push({
+  //       pathname:"/search",
+  //       query:{
+  //         countryCode:countryCode,
+  //         categoryValue:categoryValue,
+  //         keyword:keyword
+  //       }
+  //     })
+  //   }
+  // };
 
   return (
     <Layout
@@ -46,7 +67,7 @@ const Search = () => {
         <span className="enhance">fill at least one field</span>
       </h1>
       <SearchForm
-        onSubmit={onSubmit}
+        // onSubmit={onSubmit}
         onChangeCountry={onChangeCountry}
         onChangeCategory={onChangeCategory}
         onChangeKeyword={onChangeKeyword}
@@ -91,5 +112,23 @@ const Search = () => {
     </Layout>
   );
 };
+
+Search.getInitialProps = async (context)=>{
+  const {query} = context;
+  const my_API = "7467175589024bc6942b178bf2392c5a";
+  if (query.countryCode === "" && query.categoryValue === "" && query.keyword === "") {
+    window.alert("Fill at Least one Field");
+  } else {
+    const res = await fetch(
+      `https://newsapi.org/v2/top-headlines?pageSize=34&country=${query.countryCode}&category=${query.categoryValue}&q=${query.keyword}&apiKey=${my_API}`
+    );
+    const data = await res.json();
+    return {
+      data:data.articles
+    }
+    // console.log(data.articles);
+    // setSearchResults(data.articles);
+  }
+}
 
 export default Search;
