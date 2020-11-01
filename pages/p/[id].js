@@ -1,5 +1,4 @@
 import Layout from "../../components/Layout";
-import fetch from "isomorphic-unfetch";
 
 const Post = ({ postData }) => {
   return <Layout postData={postData}></Layout>;
