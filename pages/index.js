@@ -46,7 +46,6 @@ export async function getServerSideProps () {
     `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${my_API}`
   );
   const data = await res.json();
-  console.log(data);
   return {
     props: {data: data.articles}
     
