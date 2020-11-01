@@ -17,6 +17,7 @@ export async function getServerSideProps(context) {
     article =>
       `${article.source.id}${article.source.name}${article.author}${article.publishedAt}` === id
   );
+  console.log(findPost[0]);
   return {
     props:{postData: findPost[0]}
     

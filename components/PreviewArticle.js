@@ -6,7 +6,7 @@ const PreviewArticle = props => {
     <article className="preview-container">
       <PostLink
       // I've used such a log combination for Id because the Articles don't have a constant Id, and I had to find a combination that can give each article a unique identification
-        id={`${article.source.id}${article.source.name}${article.author}${article.publishedAt}`}
+        id={`${article.source.id !== undefined ? article.source.id : null}${article.source.name !== undefined ? article.source.name :null }${article.author !== undefined ? article.author : null}${article.publishedAt !== undefined ? article.publishedAt : null}`}
         countryCode={countryCode}
         categoryValue={categoryValue}
         keyword={keyword}
