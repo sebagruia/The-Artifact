@@ -83,33 +83,6 @@ const Layout = props => {
         />
       </div>
       <Footer />
-      {/* =====GLOBAL STYLES===== */}
-      <style jsx global>{`
-        * {
-          box-sizing: border-box;
-        }
-        body {
-          margin: 0;
-          font-family: "Open Sans Condensed", sans-serif;
-          font-size: 16px;
-          background-color: #fff;
-        }
-        a {
-          color: #ededec;
-          text-decoration: none;
-        }
-        a:hover {
-          color: #72c1bf;
-        }
-        .all-posts,
-        .all-posts:hover,
-        .search-icon img:hover {
-          color: #a4a4a4;
-        }
-        img {
-          width: 100%;
-        }
-      `}</style>
     </Fragment>
   );
 };

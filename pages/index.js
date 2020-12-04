@@ -12,14 +12,20 @@ const International = ({data}) => {
 };
 
 export async function getServerSideProps () {
-  const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
-  );
-  const data = await res.json();
-  return {
-    props: {data: data.articles}
-    
-  };
+  try{
+    const res = await fetch(
+      `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
+    );
+    const data = await res.json();
+    return {
+      props: {data: data.articles}
+      
+    };
+  }
+  catch(error){
+    return error
+  }
+
 };
 
 export default International;

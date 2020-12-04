@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-size: 16px;
+    background-color: #fff;
+  }
+  a {
+    color: #ededec;
+    text-decoration: none;
+  }
+  a:hover {
+    color: #72c1bf;
+  }
+  img {
+    width: 100%;
+  }
