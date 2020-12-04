@@ -1,3 +1,4 @@
+import styles from "./Main.module.css";
 import PostContainer from "../components/PostContainer";
 import PreviewArticle from "../components/PreviewArticle";
 import { useRouter } from "next/router";
@@ -18,7 +19,7 @@ const Main = (props) => {
   } = props;
 
   return (
-    <main>
+    <main className={styles.mainContainer}>
       {curentRoute === "/" ? (
         internationalArticles.map((article, index) => (
           <PreviewArticle
@@ -57,16 +58,6 @@ const Main = (props) => {
       ) : (
         <PostContainer postData={postData} />
       )}
-      <style jsx>{`
-        main {
-          width: 100%;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          margin: 0 auto;
-          background-color: #fff;
-        }
-      `}</style>
     </main>
   );
 };

@@ -1,0 +1,28 @@
+.pageName {
+    margin-left: 17px;
+    text-align: left;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 400;
+    font-variant: small-caps;
+  }
+  .pageName .enhance {
+    font-variant: small-caps;
+    font-size: 1rem;
+  }
+  .hrDeutschland {
+    border-width: 0.5px;
+    margin-bottom: 15px;
+  }
+
+    /* =====LOCAL STYLES Media Queries===== */
+  
+  @media screen and (min-width: 320px) {
+    .hrDeutschland {
+      width: 90%;
+    }
+  }
+  @media screen and (min-width: 576px) {
+    .hrDeutschland {
+      width: 96%;
+    }
+  }

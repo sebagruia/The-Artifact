@@ -1,40 +1,45 @@
+import styles from "./SearchForm.module.css";
 import Router from "next/router";
 
-const SearchForm = props => {
+const SearchForm = (props) => {
   const {
     country,
     categoryValue,
     keyword,
     onChangeCountry,
     onChangeCategory,
-    onChangeKeyword
+    onChangeKeyword,
   } = props;
 
-  const handleSubmit = (event, country, categoryValue, keyword)=>{
+  const handleSubmit = (event, country, categoryValue, keyword) => {
     event.preventDefault();
     if (country === "" && categoryValue === "" && keyword === "") {
       window.alert("Fill at Least one Field");
     } else {
       Router.push({
-        pathname:"/search",
-        query:{
-          country:country,
-          categoryValue:categoryValue,
-          keyword:keyword
-        }
-      })
+        pathname: "/search",
+        query: {
+          country: country,
+          categoryValue: categoryValue,
+          keyword: keyword,
+        },
+      });
     }
-  }
+  };
 
   return (
-    <form onSubmit={(event)=>handleSubmit(event,country, categoryValue, keyword)}>
-      <div className="input-container-select ">
-        <label htmlFor="country" className="country">
+    <form
+      className={styles.formContainer}
+      onSubmit={(event) => handleSubmit(event, country, categoryValue, keyword)}
+    >
+      <div className={styles.inputContainerSelect}>
+        <label htmlFor="country" className={styles.country}>
           Country
         </label>
         <select
+          className={styles.select}
           value={country}
-          onChange={event => onChangeCountry(event)}
+          onChange={(event) => onChangeCountry(event)}
           id="country"
           name="country"
         >
@@ -60,13 +65,14 @@ const SearchForm = props => {
         </select>
       </div>
 
-      <div className="input-container-select">
-        <label htmlFor="category" className="category">
+      <div className={styles.inputContainerSelect}>
+        <label htmlFor="category" className={styles.category}>
           Category
         </label>
         <select
+          className={styles.select}
           value={categoryValue}
-          onChange={event => onChangeCategory(event)}
+          onChange={(event) => onChangeCategory(event)}
           id="category"
           name="category"
         >
@@ -80,78 +86,25 @@ const SearchForm = props => {
           <option value="technology">technology</option>
         </select>
       </div>
-      <div className="input-container-text">
+      <div className={styles.inputContainerText}>
         <label htmlFor="keyword">Keyword</label>
         <input
+          className={styles.inputText}
           value={keyword}
-          onChange={event => onChangeKeyword(event)}
+          onChange={(event) => onChangeKeyword(event)}
           type="text"
           id="keyword"
           name="keyword"
           placeholder="search word"
         />
       </div>
-      <div className="submit-container">
-        <input type="submit" value="Get Your News" />
+      <div className={styles.submitContainer}>
+        <input
+          className={styles.inputSubmit}
+          type="submit"
+          value="Get Your News"
+        />
       </div>
-      <style jsx>{`
-        form {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-around;
-          width: 100%;
-          margin: 0 auto;
-        }
-        .input-container-select,
-        .input-container-text {
-          width: 250px;
-        }
-        .input-container-select .country {
-          margin-right: 10px;
-        }
-        form label {
-          margin: 0px 5px 0 0px;
-        }
-        input[type="text"],
-        select {
-          width: 75%;
-          padding: 5px 20px;
-          margin-right: 10px;
-          margin: 8px 0;
-          border: 1px solid #ccc;
-          border-radius: 4px;
-          box-sizing: border-box;
-        }
-        .submit-container {
-          width: 150px;
-        }
-        input[type="submit"] {
-          width: 100%;
-          background-color: #fff;
-          color: #000;
-          padding: 5px 0;
-          margin: 8px 0;
-          border: none;
-          border-radius: 4px;
-          cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-          background-color: #cccccc;
-        }
-         {
-          /* =====LOCAL STYLES Media Queries===== */
-        }
-
-        @media screen and (max-width: 768px) {
-          form {
-            width: 250px;
-          }
-          .submit-container {
-            width: 250px;
-          }
-        }
-      `}</style>
     </form>
   );
 };

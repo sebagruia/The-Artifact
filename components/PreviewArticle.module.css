@@ -1,0 +1,90 @@
+.previewContainer {
+    flex:30%;
+    max-width:30%;
+    border: 1px solid #cccccc;
+    margin-bottom: 20px;
+  }
+  .imgContainer{
+    text-align:center;
+  }
+  .imgContainer h5{
+    font-family: 'Source Sans Pro',sans-serif;
+    font-size:1.5rem;
+  }
+  .publisher{
+        margin:20px 10px;
+    }
+  .newspaperIconContainer {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+    vertical-align:middle;
+    margin-right: 5px;
+  }
+  .articleSource {
+    display: inline-block;
+    font-size:1.5rem;
+    font-family: 'Quicksand', sans-serif;
+    margin:0 20px 0 0;
+  }
+  .articleSource h5{
+      margin:0 20px 0 0;
+  }
+  .articleTime{
+      display:flex;
+      width: 136px;
+      margin-left: 34px;
+  }
+  .clockContainer{
+      width: 15px;
+      height: 15px;
+  }
+  .articleDate{
+      margin:0px;
+      font-size: 0.8rem;
+      margin-left: 5px;
+  }
+  .articleDate p{
+      margin:0;
+  }
+  .articleHr{
+      border-width:0.5px;
+      margin-bottom: 15px;
+  }
+  .articleTitle {
+    font-size: 1.1rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    margin:0 10px
+  }
+  .articleDescription {
+    margin:20px 10px;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
+    overflow-x: hidden;
+  }
+  .authorName{
+    margin-left:10px;
+  }
+  
+  /* =====LOCAL STYLES Media Queries===== */
+  @media screen and (min-width:320px) {
+    .previewContainer{
+      flex:90%;
+      max-width:90%;
+    }
+  }
+    
+  @media screen and (min-width:576px) {
+      .previewContainer{
+      flex:45%;
+      max-width:45%;
+      }
+  }
+  @media screen and (min-width:992px) {
+      .previewContainer{
+      flex:30%;
+      max-width:30%;
+      }
+  }

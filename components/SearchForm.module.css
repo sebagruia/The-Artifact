@@ -1,0 +1,56 @@
+.formContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .inputContainerSelect,
+  .inputContainerText {
+    width: 250px;
+  }
+  .inputContainerSelect .country {
+    margin-right: 10px;
+  }
+  .formContainer label {
+    margin: 0px 5px 0 0px;
+  }
+  .inputText,
+  .select {
+    width: 75%;
+    padding: 5px 20px;
+    margin-right: 10px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .submitContainer {
+    width: 150px;
+  }
+  .inputSubmit {
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    padding: 5px 0;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .inputSubmit:hover {
+    background-color: #cccccc;
+  }
+   
+    /* =====LOCAL STYLES Media Queries===== */
+  
+
+  @media screen and (max-width: 768px) {
+    .formContainer {
+      width: 250px;
+    }
+    .submitContainer {
+      width: 250px;
+    }
+  }

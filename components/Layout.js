@@ -1,3 +1,4 @@
+import styles from "./Layout.module.css";
 import Head from "next/head";
 import Header from "../components/Header";
 import Main from "../components/Main";
@@ -18,20 +19,20 @@ const Layout = props => {
   } = props;
 
 
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(false);
   const [marginNav, setMarginNav] = useState({ margin: "30px 20px" });
   const [navLinksStyle, SetNavLinksStyle] = useState();
 
   const onClick = () => {
-    if (active === "") {
-      setActive("is-active");
+    if (active===false) {
+      setActive(!active);
       setMarginNav({ margin: "30px 20px 120px 20px" });
       SetNavLinksStyle({
         display: "flex",
         left: "150px"
       });
     } else {
-      setActive("");
+      setActive(true);
       setMarginNav({ margin: "30px 20px" });
       SetNavLinksStyle({ display: "none" });
     }
@@ -68,7 +69,7 @@ const Layout = props => {
         navLinksStyle={navLinksStyle}
         active={active}
       />
-      <div className="container">
+      <div className={styles.container}>
         {children}
         <Main
           internationalArticles={internationalArticles}
@@ -82,201 +83,6 @@ const Layout = props => {
         />
       </div>
       <Footer />
-
-      {/* =====LOCAL STYLES===== */}
-      <style jsx>{`
-        .container {
-          width: 65%;
-          margin: 0 auto;
-          margin-top: 180px;
-        }
-        .page-name {
-          margin-left: 17px;
-          text-align: left;
-          font-family: "Quicksand", sans-serif;
-          font-weight: 400;
-          font-variant: small-caps;
-        }
-        .page-name .enhance {
-          font-variant: small-caps;
-          font-size: 1rem;
-        }
-        header {
-          position: fixed;
-          top: 0;
-          left: 0;
-          display: flex;
-          width: 100%;
-          margin: 0 auto;
-          justify-content: center;
-          background-color: #000;
-        }
-
-        .nav {
-          position: relative;
-          display: flex;
-          width: 992px;
-          justify-content: center;
-          align-items: center;
-          padding: 0;
-          margin: 40px 20px;
-        }
-        .nav-logo {
-          display: flex;
-          margin-right: auto;
-        }
-        .nav-links {
-          display: flex;
-          height: 50px;
-          align-items: flex-end;
-          font-size: 1.1rem;
-          padding-top: 11px;
-        }
-        .nav-links a {
-          padding-right: 10px;
-        }
-        .box-logo {
-          width: 70px;
-          height: auto;
-          margin-right: 10px;
-        }
-
-        .logo-text h1,
-        .logo-text h5 {
-          margin: -8px 0 0 0;
-          color: #ededec;
-        }
-        .logo-text h1 {
-          font-size: 2.8rem;
-          font-variant: small-caps;
-        }
-        .logo-text h5 {
-          font-family: "Quicksand", sans-serif;
-          font-weight: 300;
-          font-size: 1rem;
-        }
-         {
-          /* @link https://github.com/jonsuh/hamburgers */
-        }
-        .hamburger {
-          padding: 7px 7px;
-          display: none;
-          cursor: pointer;
-          transition-property: opacity, filter;
-          transition-duration: 0.15s;
-          transition-timing-function: linear;
-          font: inherit;
-          color: inherit;
-          text-transform: none;
-          background-color: transparent;
-          border: 0;
-          margin: 0;
-          overflow: visible;
-        }
-
-        .hamburger.is-active .hamburger-inner,
-        .hamburger.is-active .hamburger-inner::before,
-        .hamburger.is-active .hamburger-inner::after {
-          background-color: #ededec;
-        }
-
-        .hamburger-box {
-          width: 24px;
-          height: 20px;
-          display: inline-block;
-          position: relative;
-        }
-
-        .hamburger-inner {
-          display: block;
-          top: 50%;
-        }
-
-        .hamburger-inner,
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-          width: 24px;
-          height: 1.5px;
-          background-color: #ededec;
-          border-radius: 4px;
-          position: absolute;
-          transition-property: transform;
-          transition-duration: 0.15s;
-          transition-timing-function: ease;
-        }
-
-        .hamburger-inner::before,
-        .hamburger-inner::after {
-          content: "";
-          display: block;
-        }
-
-        .hamburger-inner::before {
-          top: -10px;
-        }
-
-        .hamburger-inner::after {
-          bottom: -10px;
-        }
-
-        /* Spin */
-
-        .hamburger--spin .hamburger-inner {
-          transition-duration: 0.22s;
-          transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        }
-        .hamburger--spin .hamburger-inner::before {
-          transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
-        }
-        .hamburger--spin .hamburger-inner::after {
-          transition: bottom 0.1s 0.25s ease-in,
-            transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
-        }
-
-        .hamburger--spin.is-active .hamburger-inner {
-          transform: rotate(225deg);
-          transition-delay: 0.12s;
-          transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-        .hamburger--spin.is-active .hamburger-inner::before {
-          top: 0;
-          opacity: 0;
-          transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
-        }
-        .hamburger--spin.is-active .hamburger-inner::after {
-          bottom: 0;
-          transform: rotate(-90deg);
-          transition: bottom 0.1s ease-out,
-            transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
-        }
-
-         {
-          /* =====LOCAL STYLES Media Queries===== */
-        }
-        @media screen and (min-width: 320px) {
-          .container {
-            width: 100%;
-            margin-top: 190px;
-          }
-        }
-
-        @media screen and (min-width: 1200px) {
-          .container {
-            width: 90%;
-          }
-        }
-        @media screen and (min-width: 1500px) {
-          .container {
-            width: 75%;
-          }
-        }
-        @media screen and (min-width: 1600px) {
-          .container {
-            width: 65%;
-          }
-        }
-      `}</style>
-
       {/* =====GLOBAL STYLES===== */}
       <style jsx global>{`
         * {
@@ -294,14 +100,6 @@ const Layout = props => {
         }
         a:hover {
           color: #72c1bf;
-        }
-        .link-to-post,
-        .link-to-post:hover {
-          color: #000;
-        }
-        .search-icon img {
-          width: 20px;
-          padding-left: 5px;
         }
         .all-posts,
         .all-posts:hover,

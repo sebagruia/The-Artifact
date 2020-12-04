@@ -1,3 +1,4 @@
+import styles from "./PostLink.module.css";
 import Link from "next/link";
 
 const PostLink = (props) => {
@@ -9,7 +10,7 @@ const PostLink = (props) => {
         query: { title, country, countryCode, keyword, categoryValue },
       }}
     >
-      <a className="link-to-post">{children}</a>
+      <a className={styles.linkToPost}>{children}</a>
     </Link>
   );
 };

@@ -1,42 +1,13 @@
+import styles from "./Deutschland.module.css";
 import Layout from "../components/Layout";
 
 const Deutschland = ({data}) => {
   return (
     <Layout deutschlandArticles={data}>
-      <h1 className="page-name">
-        Deutschland <span className="enhance">Headlines</span>
+      <h1 className={styles.pageName}>
+        Deutschland <span className={styles.enhance}>Headlines</span>
       </h1>
-      <hr></hr>
-      <style jsx>{`
-        .page-name {
-          margin-left: 17px;
-          text-align: left;
-          font-family: "Quicksand", sans-serif;
-          font-weight: 400;
-          font-variant: small-caps;
-        }
-        .page-name .enhance {
-          font-variant: small-caps;
-          font-size: 1rem;
-        }
-        hr {
-          border-width: 0.5px;
-          margin-bottom: 15px;
-        }
-         {
-          /* =====LOCAL STYLES Media Queries===== */
-        }
-        @media screen and (min-width: 320px) {
-          hr {
-            width: 90%;
-          }
-        }
-        @media screen and (min-width: 576px) {
-          hr {
-            width: 96%;
-          }
-        }
-      `}</style>
+      <hr className={styles.hrDeutschland}></hr>
     </Layout>
   );
 };

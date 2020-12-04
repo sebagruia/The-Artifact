@@ -1,0 +1,178 @@
+.headerContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: center;
+    background-color: #000;
+  }
+  .nav {
+    position: relative;
+    display: flex;
+    width: 992px;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 40px 20px;
+    transition: margin 0.3s;
+  }
+  .navLogo {
+    display: flex;
+    margin-right: auto;
+    cursor:pointer;
+  }
+  .navLinks {
+    display: flex;
+    height: 50px;
+    align-items: flex-end;
+    font-size: 1.1rem;
+    padding-top: 11px;
+  }
+  .navLinks a {
+    padding-right: 10px;
+  }
+  .boxLogo {
+    width: 70px;
+    height: auto;
+    margin-right: 10px;
+  }
+  .logoText h1,
+  .logoText h5 {
+    margin: -8px 0 0 0;
+    color: #ededec;
+  }
+  .logoText h1 {
+    font-size: 2.8rem;
+    font-variant: small-caps;
+  }
+  .logoText h5 {
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+  .searchIcon img {
+    width: 20px;
+    padding-left: 5px;
+  }
+   /* @link https://github.com/jonsuh/hamburgers */
+   .hamburger {
+    padding: 7px 7px;
+    display: none;
+    cursor: pointer;
+    transition-property: opacity, filter;
+    transition-duration: 0.15s;
+    transition-timing-function: linear;
+    font: inherit;
+    color: inherit;
+    text-transform: none;
+    background-color: transparent;
+    border: 0;
+    margin: 0;
+    overflow: visible;
+  }
+
+  .hamburger.isActive .hamburgerInner,
+  .hamburger.isActive .hamburgerInner::before,
+  .hamburger.isActive .hamburgerInner::after {
+    background-color: #ededec;
+  }
+
+  .hamburgerBox {
+    width: 24px;
+    height: 20px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .hamburgerInner {
+    display: block;
+    top: 50%;
+  }
+
+  .hamburgerInner,
+  .hamburgerInner::before,
+  .hamburgerInner::after {
+    width: 24px;
+    height: 1.5px;
+    background-color: #ededec;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: transform;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
+  }
+
+  .hamburgerInner::before,
+  .hamburgerInner::after {
+    content: "";
+    display: block;
+  }
+
+  .hamburgerInner::before {
+    top: -10px;
+  }
+
+  .hamburgerInner::after {
+    bottom: -10px;
+  }
+
+  /* Spin */
+
+  .hamburgerSpin .hamburgerInner {
+    transition-duration: 0.22s;
+    transition-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+  .hamburgerSpin .hamburgerInner::before {
+    transition: top 0.1s 0.25s ease-in, opacity 0.1s ease-in;
+  }
+  .hamburgerSpin .hamburgerInner::after {
+    transition: bottom 0.1s 0.25s ease-in,
+      transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  }
+
+  .hamburgerSpin.isActive .hamburgerInner {
+    transform: rotate(225deg);
+    transition-delay: 0.12s;
+    transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+  .hamburgerSpin.isActive .hamburgerInner::before {
+    top: 0;
+    opacity: 0;
+    transition: top 0.1s ease-out, opacity 0.1s 0.12s ease-out;
+  }
+  .hamburgerSpin.isActive .hamburgerInner::after {
+    bottom: 0;
+    transform: rotate(-90deg);
+    transition: bottom 0.1s ease-out,
+      transform 0.22s 0.12s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  
+    /* =====LOCAL STYLES Media Queries===== */
+  
+  @media screen and (max-width: 576px) {
+    .nav {
+      flex-wrap: wrap;
+    }
+    .navLinks {
+      flex-direction: column;
+      display: none;
+    }
+    .navLinks {
+      position: absolute;
+      top: 60px;
+      left: 650px;
+    }
+    .navLinks div {
+      padding: 2px 0;
+    }
+
+    .hamburger {
+      position: absolute;
+      display: inline-block;
+      right: 25px;
+      top: 25px;
+    }
+  }
