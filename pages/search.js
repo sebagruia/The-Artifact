@@ -4,11 +4,11 @@ import SearchForm from "../components/SearchForm";
 
 
 const Search = ({data}) => {
-  let [countryCode, setCountryCode] = useState("");
+  let [country, setCountryCode] = useState("");
   let [categoryValue, setCategoryValue] = useState("");
   let [keyword, setkeyword] = useState("");
   const onChangeCountry = event => {
-    countryCode = setCountryCode(event.target.value);
+    country = setCountryCode(event.target.value);
   };
   const onChangeCategory = event => {
     categoryValue = setCategoryValue(event.target.value);
@@ -21,7 +21,7 @@ const Search = ({data}) => {
   return (
     <Layout
       searchArticles={data}
-      countryCode={countryCode}
+      country={country}
       categoryValue={categoryValue}
       keyword={keyword}
     >
@@ -33,7 +33,7 @@ const Search = ({data}) => {
         onChangeCountry={onChangeCountry}
         onChangeCategory={onChangeCategory}
         onChangeKeyword={onChangeKeyword}
-        countryCode={countryCode}
+        country={country}
         categoryValue={categoryValue}
         keyword={keyword}
       />
@@ -77,12 +77,12 @@ const Search = ({data}) => {
 
 export async function getServerSideProps(context) {
   const {query} = context;
-  const my_API = "7467175589024bc6942b178bf2392c5a";
-  if (query.countryCode === "" && query.categoryValue === "" && query.keyword === "") {
+  console.log(query);
+  if (query.country === "" && query.categoryValue === "" && query.keyword === "") {
     window.alert("Fill at Least one Field");
   } else {
     const res = await fetch(
-      `https://newsapi.org/v2/top-headlines?pageSize=34&country=${query.countryCode}&category=${query.categoryValue}&q=${query.keyword}&apiKey=${my_API}`
+      `https://newsapi.org/v2/top-headlines?pageSize=34&country=${query.country}&category=${query.categoryValue}&q=${query.keyword}&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     );
     const data = await res.json();
     return {

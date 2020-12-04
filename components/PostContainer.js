@@ -1,12 +1,8 @@
 import Link from "next/link";
-import { Fragment } from "react";
 
 const PostContainer = ({ postData }) => {
   return (
-    <Fragment>
-      {
-        postData !== undefined 
-        ?  <div className="post-container">
+       <div className="post-container">
         <Link href="/">
           <a role="button" className="all-posts">
             All Articles
@@ -171,11 +167,6 @@ const PostContainer = ({ postData }) => {
           }
         `}</style>
       </div>
-      :
-      <div><h1>LOADING....</h1></div>
-      }
-    </Fragment>
-    
   );
 };
 

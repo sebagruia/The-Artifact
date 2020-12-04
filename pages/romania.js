@@ -43,9 +43,8 @@ const Romania = ({data}) => {
 
 
  export async function getServerSideProps() {
-  const my_API = "7467175589024bc6942b178bf2392c5a";
   const res = await fetch(
-    `https://newsapi.org/v2/top-headlines?country=ro&pageSize=21&apiKey=${my_API}`
+    `https://newsapi.org/v2/top-headlines?country=ro&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
   );
   const data = await res.json();
   return {

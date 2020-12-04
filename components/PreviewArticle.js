@@ -2,11 +2,11 @@ import PostLink from "../components/PostLink";
 
 const PreviewArticle = props => {
   const { article, country, countryCode, categoryValue, keyword } = props;
+  console.log(props);
   return (
     <article className="preview-container">
       <PostLink
-      // I've used such a log combination for Id because the Articles don't have a constant Id, and I had to find a combination that can give each article a unique identification
-        id={`${article.source.id !== undefined ? article.source.id : null}${article.source.name !== undefined ? article.source.name :null }${article.author !== undefined ? article.author : null}${article.publishedAt !== undefined ? article.publishedAt : null}`}
+        title={article.title}
         countryCode={countryCode}
         categoryValue={categoryValue}
         keyword={keyword}
@@ -47,7 +47,7 @@ const PreviewArticle = props => {
 
       <hr className="article-hr"></hr>
       <PostLink
-        id={`${article.source.id}${article.source.name}${article.author}${article.publishedAt}`}
+        title={article.title}
         countryCode={countryCode}
         categoryValue={categoryValue}
         keyword={keyword}
@@ -57,7 +57,7 @@ const PreviewArticle = props => {
       </PostLink>
 
       <PostLink
-         id={`${article.source.id}${article.source.name}${article.author}${article.publishedAt}`}
+        title={article.title}
         countryCode={countryCode}
         categoryValue={categoryValue}
         keyword={keyword}

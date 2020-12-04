@@ -1,13 +1,13 @@
 import Link from "next/link";
 
-const PostLink = props => {
-  const { id, country, countryCode, keyword, categoryValue, children } = props;
+const PostLink = (props) => {
+  const { title, country, countryCode, keyword, categoryValue, children } = props;
   return (
     <Link
-      href="/p/[...id]"
-      as={`/p/${id}?country=${country ? country : countryCode ? countryCode : ""}&q=${
-        keyword ? keyword : ""
-      }&category=${categoryValue ? categoryValue : ""}`}
+      href={{
+        pathname: `/post/${title}`,
+        query: { title, country, countryCode, keyword, categoryValue },
+      }}
     >
       <a className="link-to-post">{children}</a>
     </Link>

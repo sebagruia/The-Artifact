@@ -2,7 +2,7 @@ import PostContainer from "../components/PostContainer";
 import PreviewArticle from "../components/PreviewArticle";
 import { useRouter } from "next/router";
 
-const Main = props => {
+const Main = (props) => {
   const router = useRouter();
   const curentRoute = router.route;
 
@@ -12,9 +12,9 @@ const Main = props => {
     romaniaArticles,
     searchArticles,
     postData,
-    countryCode,
+    country,
     categoryValue,
-    keyword
+    keyword,
   } = props;
 
   return (
@@ -22,37 +22,35 @@ const Main = props => {
       {curentRoute === "/" ? (
         internationalArticles.map((article, index) => (
           <PreviewArticle
-            country="us"
             key={`${article.source.id}${article.source.name}${index}`}
+            country="us"
             article={article}
           />
         ))
       ) : curentRoute === "/deutschland" ? (
         deutschlandArticles.map((article, index) => (
           <PreviewArticle
-            country="de"
             key={`${article.source.id}${article.source.name}${index}`}
+            country="de"
             article={article}
           />
         ))
-        
       ) : curentRoute === "/romania" ? (
         romaniaArticles.map((article, index) => (
           <PreviewArticle
-            country="ro"
             key={`${article.source.id}${article.source.name}${index}`}
+            country="ro"
             article={article}
           />
         ))
-
       ) : curentRoute === "/search" ? (
         searchArticles &&
         searchArticles.map((article, index) => (
           <PreviewArticle
-            countryCode={countryCode}
+            key={`${article.source.id}${article.source.name}${index}`}
+            country={country}
             categoryValue={categoryValue}
             keyword={keyword}
-            key={`${article.source.id}${article.source.name}${index}`}
             article={article}
           />
         ))

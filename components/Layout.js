@@ -7,7 +7,7 @@ import { Fragment, useState } from "react";
 const Layout = props => {
   const {
     children,
-    countryCode,
+    country,
     categoryValue,
     keyword,
     internationalArticles,
@@ -76,7 +76,7 @@ const Layout = props => {
           romaniaArticles={romaniaArticles}
           searchArticles={searchArticles}
           postData={postData}
-          countryCode={countryCode}
+          country={country}
           categoryValue={categoryValue}
           keyword={keyword}
         />
