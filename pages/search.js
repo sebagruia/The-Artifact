@@ -77,7 +77,6 @@ const Search = ({data}) => {
 
 export async function getServerSideProps(context) {
   const {query} = context;
-  console.log(query);
   if (query.country === "" && query.categoryValue === "" && query.keyword === "") {
     window.alert("Fill at Least one Field");
   } else {

@@ -2,7 +2,6 @@ import PostLink from "../components/PostLink";
 
 const PreviewArticle = props => {
   const { article, country, countryCode, categoryValue, keyword } = props;
-  console.log(props);
   return (
     <article className="preview-container">
       <PostLink
