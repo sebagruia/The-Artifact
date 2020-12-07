@@ -8,11 +8,7 @@ const Main = (props) => {
   const curentRoute = router.route;
 
   const {
-    internationalArticles,
-    deutschlandArticles,
-    romaniaArticles,
-    searchArticles,
-    postData,
+    data,
     country,
     categoryValue,
     keyword,
@@ -21,7 +17,7 @@ const Main = (props) => {
   return (
     <main className={styles.mainContainer}>
       {curentRoute === "/" ? (
-        internationalArticles.map((article, index) => (
+        data.map((article, index) => (
           <PreviewArticle
             key={`${article.source.id}${article.source.name}${index}`}
             country="us"
@@ -29,7 +25,7 @@ const Main = (props) => {
           />
         ))
       ) : curentRoute === "/deutschland" ? (
-        deutschlandArticles.map((article, index) => (
+        data.map((article, index) => (
           <PreviewArticle
             key={`${article.source.id}${article.source.name}${index}`}
             country="de"
@@ -37,7 +33,7 @@ const Main = (props) => {
           />
         ))
       ) : curentRoute === "/romania" ? (
-        romaniaArticles.map((article, index) => (
+        data.map((article, index) => (
           <PreviewArticle
             key={`${article.source.id}${article.source.name}${index}`}
             country="ro"
@@ -45,8 +41,8 @@ const Main = (props) => {
           />
         ))
       ) : curentRoute === "/search" ? (
-        searchArticles &&
-        searchArticles.map((article, index) => (
+        data &&
+        data.map((article, index) => (
           <PreviewArticle
             key={`${article.source.id}${article.source.name}${index}`}
             country={country}
@@ -56,7 +52,7 @@ const Main = (props) => {
           />
         ))
       ) : (
-        <PostContainer postData={postData} />
+        <PostContainer data={data} />
       )}
     </main>
   );

@@ -2,7 +2,7 @@ import styles from "./Home.module.css";
 import Layout from "../components/Layout";
 const International = ({data}) => {
   return (
-    <Layout internationalArticles={data}>
+    <Layout data={data}>
       <h1 className={styles.pageName}>
         International <span className={styles.enhance}>Headlines</span>
       </h1>

@@ -1,7 +1,7 @@
 import styles from "./PostContainer.module.css";
 import Link from "next/link";
 
-const PostContainer = ({ postData }) => {
+const PostContainer = ({ data }) => {
   return (
     <div className={styles.postContainer}>
       <Link href="/">
@@ -15,9 +15,9 @@ const PostContainer = ({ postData }) => {
         </div>
         <div className={styles.articleSource}>
           <h5>
-            {postData.source.name !== null
-              ? postData.source.name
-              : postData.author}
+            {data.source.name !== null
+              ? data.source.name
+              : data.author}
           </h5>
         </div>
         <div className={styles.articleTime}>
@@ -25,23 +25,23 @@ const PostContainer = ({ postData }) => {
             <img src="/fonts/clock-regular.svg" alt="clock icon" />
           </div>
           <div className={styles.articleDate}>
-            <p>{postData.publishedAt}</p>
+            <p>{data.publishedAt}</p>
           </div>
         </div>
       </div>
-      <h1 className={styles.articleTitle}>{postData.title}</h1>
+      <h1 className={styles.articleTitle}>{data.title}</h1>
       <div className={styles.imgContainer}>
-        {postData.urlToImage ? (
+        {data.urlToImage ? (
           <img
-            src={postData.urlToImage}
+            src={data.urlToImage}
             alt="an image relevant to the news article"
           />
         ) : (
           <h5>No Image Available</h5>
         )}
       </div>
-      <p className={styles.articleContent}>{postData.content}</p>
-      <a href={postData.url} role="button" className={styles.allPosts}>
+      <p className={styles.articleContent}>{data.content}</p>
+      <a href={data.url} role="button" className={styles.allPosts}>
         Read More
       </a>
     </div>

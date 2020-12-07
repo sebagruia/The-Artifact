@@ -1,11 +1,12 @@
 import styles from "./PreviewArticle.module.css";
 import PostLink from "../components/PostLink";
 
-const PreviewArticle = props => {
+const PreviewArticle = (props) => {
   const { article, country, countryCode, categoryValue, keyword } = props;
   return (
     <article className={styles.previewContainer}>
       <PostLink
+        article={article}
         title={article.title}
         countryCode={countryCode}
         categoryValue={categoryValue}
@@ -26,7 +27,7 @@ const PreviewArticle = props => {
 
       <div className={styles.publisher}>
         <div className={styles.newspaperIconContainer}>
-          <img src="/fonts/newspaper.svg"  alt="newspaper icon"/>
+          <img src="/fonts/newspaper.svg" alt="newspaper icon" />
         </div>
         <div className={styles.articleSource}>
           <h5>
@@ -47,6 +48,7 @@ const PreviewArticle = props => {
 
       <hr className={styles.articleHr}></hr>
       <PostLink
+        article={article}
         title={article.title}
         countryCode={countryCode}
         categoryValue={categoryValue}
@@ -57,6 +59,7 @@ const PreviewArticle = props => {
       </PostLink>
 
       <PostLink
+        article={article}
         title={article.title}
         countryCode={countryCode}
         categoryValue={categoryValue}

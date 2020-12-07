@@ -21,7 +21,7 @@ const Search = ({data}) => {
 
   return (
     <Layout
-      searchArticles={data}
+      data={data}
       country={country}
       categoryValue={categoryValue}
       keyword={keyword}

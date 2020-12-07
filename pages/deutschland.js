@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 
 const Deutschland = ({data}) => {
   return (
-    <Layout deutschlandArticles={data}>
+    <Layout data={data}>
       <h1 className={styles.pageName}>
         Deutschland <span className={styles.enhance}>Headlines</span>
       </h1>

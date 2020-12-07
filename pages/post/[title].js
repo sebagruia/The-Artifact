@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout";
 
-const Post = ({ postData }) => {
-  return <Layout postData={postData}></Layout>;
+const Post = ({postData}) => {
+  return <Layout data={postData}></Layout>;
 };
 
 export async function getServerSideProps(context) {

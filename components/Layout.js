@@ -11,11 +11,7 @@ const Layout = props => {
     country,
     categoryValue,
     keyword,
-    internationalArticles,
-    deutschlandArticles,
-    romaniaArticles,
-    searchArticles,
-    postData
+    data
   } = props;
 
 
@@ -72,11 +68,7 @@ const Layout = props => {
       <div className={styles.container}>
         {children}
         <Main
-          internationalArticles={internationalArticles}
-          deutschlandArticles={deutschlandArticles}
-          romaniaArticles={romaniaArticles}
-          searchArticles={searchArticles}
-          postData={postData}
+          data={data}
           country={country}
           categoryValue={categoryValue}
           keyword={keyword}
