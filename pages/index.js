@@ -11,15 +11,15 @@ const International = ({data}) => {
   );
 };
 
-export async function getServerSideProps () {
+export async function getStaticProps () {
   try{
     const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=us&pageSize=34&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     );
     const data = await res.json();
     return {
-      props: {data: data.articles}
-      
+      props: {data: data.articles},
+      revalidate: 1, // In seconds
     };
   }
   catch(error){

@@ -13,21 +13,20 @@ const Romania = ({data}) => {
 };
 
 
- export async function getServerSideProps() {
+ export async function getStaticProps() {
    try{
     const res = await fetch(
       `https://newsapi.org/v2/top-headlines?country=ro&pageSize=21&apiKey=${process.env.NEXT_PUBLIC_NEWS_API_KEY}`
     );
     const data = await res.json();
     return {
-      props:{data: data.articles}
-      
+      props:{data: data.articles},
+      revalidate: 1, // In seconds 
     };
    }
    catch(error){
     return error;
    }
-
 };
 
 export default Romania;
