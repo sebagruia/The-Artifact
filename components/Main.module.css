@@ -1,8 +1,19 @@
 .mainContainer {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin: 0 auto;
+    display:grid;
+    justify-content:center;
+    grid-column-gap:30px;
+    padding:0 25px 0 25px;
     background-color: #fff;
   }
+
+  @media screen and (min-width:576px) {
+    .mainContainer {
+      grid-template-columns: repeat(2,auto);
+  }
+}
+  @media screen and (min-width:992px) {
+    .mainContainer {
+      grid-template-columns: repeat(3,auto);
+  }
+}

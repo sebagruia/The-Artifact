@@ -1,6 +1,4 @@
 .previewContainer {
-    flex:30%;
-    max-width:30%;
     border: 1px solid #cccccc;
     margin-bottom: 20px;
   }
@@ -68,23 +66,3 @@
     margin-left:10px;
   }
   
-  /* =====LOCAL STYLES Media Queries===== */
-  @media screen and (min-width:320px) {
-    .previewContainer{
-      flex:90%;
-      max-width:90%;
-    }
-  }
-    
-  @media screen and (min-width:576px) {
-      .previewContainer{
-      flex:45%;
-      max-width:45%;
-      }
-  }
-  @media screen and (min-width:992px) {
-      .previewContainer{
-      flex:30%;
-      max-width:30%;
-      }
-  }
